@@ -30,6 +30,9 @@ module.exports = {
   entry: {
     bundle: getPath("index.js"),
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
   module: {
     rules: [
       getStyleLoader(/\.css$/),
@@ -45,6 +48,11 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: '/node_modules/'
       },
       {
         test: /\.(jsx|js)$/,
