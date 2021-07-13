@@ -1,104 +1,103 @@
-const path = require("path");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const pages = [
   {
-    template: path.resolve(__dirname, "src/index.html"),
-    filename: "index.html",
-   // favicon: path.resolve(__dirname, "public/assets/images/logo.png")
+    template: path.resolve(__dirname, 'src/index.html'),
+    filename: 'index.html',
   },
 ];
-const getFileLoader = (regExp) => ({
+const getFileLoader = regExp => ({
   test: regExp,
-  use: ["file-loader"],
+  use: ['file-loader'],
 });
 const getStyleLoader = (regExp, additionalLoaders) => {
   const rules = {
     test: regExp,
-    use: ["style-loader", "css-loader"],
+    use: ['style-loader', 'css-loader'],
   };
   if (additionalLoaders && additionalLoaders.length) {
-    additionalLoaders.forEach((loader) => rules.use.push(loader));
+    additionalLoaders.forEach(loader => rules.use.push(loader));
   }
   return rules;
 };
-const getPath = (url) => path.resolve(__dirname, `src/${url}`);
+const getPath = url => path.resolve(__dirname, `src/${url}`);
 
 module.exports = {
   entry: {
-    bundle: getPath("index.js"),
+    bundle: getPath('index.tsx'),
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    alias: {
+      src: path.resolve('./src'),
+    },
+    extensions: ['.js', '.json', '.ts', '.tsx', '.jsx'],
   },
   module: {
     rules: [
       getStyleLoader(/\.css$/),
       getFileLoader(/\.(ttf|woff|eot)$/),
       getFileLoader(/\.(jpg|jpeg|svg|png)$/),
-      getStyleLoader(/\.s[ac]ss$/, ["sass-loader"]),
+      getStyleLoader(/\.s[ac]ss$/, ['sass-loader']),
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ['@babel/preset-env'],
           },
         },
       },
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: '/node_modules/'
+        test: /\.(tsx|ts)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react', '@babel/preset-env', '@babel/preset-typescript'],
+          },
+        },
       },
       {
         test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-react", "@babel/preset-env"],
-          },
-        },
-      },
-      {
-        test: /\.(test|spec).(jsx|js)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-react", "@babel/preset-env"],
+            presets: ['@babel/preset-react', '@babel/preset-env'],
           },
         },
       },
     ],
   },
   plugins: [
-    ...pages.map((config) => new HTMLWebpackPlugin(config)),
+    ...pages.map(config => new HTMLWebpackPlugin(config)),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "public/assets"),
-          to: path.resolve(__dirname, "dist/assets"),
+          from: path.resolve(__dirname, 'public/assets/images'),
+          to: path.resolve(__dirname, 'dist/public/assets/images'),
         },
       ],
     }),
   ],
   output: {
-    filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "dist"),
+    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
     splitChunks: {
-      chunks: "all",
+      chunks: 'all',
     },
   },
   devServer: {
     port: 2282,
     historyApiFallback: true,
+    contentBase: './',
+    hot: true,
   },
 };
