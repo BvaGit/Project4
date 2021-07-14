@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { InputHTMLAttributes } from 'react';
 
+
 export const InputStyle = styled.input<InputHTMLAttributes<HTMLInputElement>> `
-    width: 400px;
+    width: 100%;
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 50px;

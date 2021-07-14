@@ -1,6 +1,6 @@
 import React from 'react';
-import RegistrationInput from './RegistrationInput';
-import RegistrationButton from './RegistrationButton';
+import AuthInput from './AuthInput/';
+import AuthButton from './AuthBtn/';
 import { CenterStyleRegAuth, DefaultDark, TitleRegAuth, Sign } from '../../utils/variablesStyle';
 import { NavLink } from 'react-router-dom';
 
@@ -9,31 +9,24 @@ const Registration = () => {
     return (
         <DefaultDark>
             <CenterStyleRegAuth>
-                <TitleRegAuth>Sigin up</TitleRegAuth>
-                <RegistrationInput
+                <TitleRegAuth>Sign in</TitleRegAuth>
+                <AuthInput
                     id="login" 
                     type="text"
                     title={title}
                     placeholder="Enter your login" 
                     label="Login" 
                 />
-                <RegistrationInput
+                <AuthInput
                     id="password" 
                     type="password"
                     title={title}
                     placeholder="Enter your password" 
                     label="Password" 
                 />
-                <RegistrationInput
-                    id="confirmPassword" 
-                    type="password"
-                    title={title}
-                    placeholder="Confirm your password" 
-                    label="Repeat password" 
-                />
-                <RegistrationButton/>
-                <NavLink to='/'>
-                    <Sign>Sign in</Sign>
+                <AuthButton/>
+                <NavLink to='/registration'>
+                    <Sign>Sign up</Sign>
                 </NavLink>
             </CenterStyleRegAuth>
         </DefaultDark>
