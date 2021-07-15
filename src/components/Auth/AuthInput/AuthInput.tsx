@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Input from '../../UI/Input';
-import { validateRegField } from '/src/helpers/validation';
+import { validateRegField } from '/src/helpers/validation'
 import { BlockInput, NoValidStyle } from './styled';
 
 type inputProps = {
@@ -22,7 +22,7 @@ type inputProps = {
 } 
 
 
-const RegistrationInput = ({ type, value, title, id, label, placeholder, changeField, setError, error }: inputProps) => {
+const AuthInput = ({ type, value, title, id, label, placeholder, changeField, setError, error }: inputProps) => {
     const [blured, setBlured] = useState(false);
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -32,7 +32,7 @@ const RegistrationInput = ({ type, value, title, id, label, placeholder, changeF
     
     const handleBlur = (): void => {
         setBlured(true);
-        if(id !== 'confirmPassword') setError({[id]: validateRegField(id, value) })
+        setError({[id]: validateRegField(id, value) })
     }
     
     return(
@@ -50,10 +50,12 @@ const RegistrationInput = ({ type, value, title, id, label, placeholder, changeF
                     onBlur={handleBlur}
                     onChange={handleChange}
                 />
-                <NoValidStyle>{(blured && error) && <div>{error}</div>}</NoValidStyle>
+                < NoValidStyle>
+                    {(blured && error) && <div>{error}</div>}
+                </NoValidStyle>
             </BlockInput>
         </>
     )
 }
 
-export default RegistrationInput;
+export default AuthInput;

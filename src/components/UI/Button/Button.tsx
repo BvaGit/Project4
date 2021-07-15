@@ -2,8 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StButton } from './styled';
 import { IButton } from 'src/components/UI/Button/types';
+import { ButtonStyle } from './styled';
 
-const Button = ({
+const ButtonHeader = ({
                     id,
                     name,
                     onClick,
@@ -50,6 +51,23 @@ const Button = ({
         </StButton>
     );
 };
+
+type TButtonProps = {
+    type: "submit" | "button",
+    textId: string,
+    onClick: void
+}
+
+const Button = ({type, textId, onClick}: TButtonProps) => {
+    return (
+        <ButtonStyle 
+            type={type}
+            onClick={onClick}
+        >
+            {textId}
+        </ButtonStyle>
+    )
+}
 
 
 export default Button;
