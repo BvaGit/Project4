@@ -1,20 +1,21 @@
-import React from "react";
-import { StControl } from "src/components/Header/HeaderControlPanel/styled";
+import React from 'react';
+import { StControl } from 'src/components/Header/HeaderControlPanel/styled';
 import { useTranslation } from 'react-i18next';
-import { HEADER_CONTROL_BTNS } from "src/constants/componentsConsts";
+import { HEADER_CONTROL_BTNS } from 'src/constants/componentsConsts';
 import Button  from '../../UI/Button';
 import { colorDefault } from '../../UI/baseLayout';
+import { support } from '../../../helpers/support';
 
-
-const HeaderControlPanel = () => {
+const HeaderControlPanel = ({ setValue }) => {
     const { i18n } = useTranslation();
     const handleChangeLanguage = (e) => {
         i18n.changeLanguage(e.target.value);
         localStorage.setItem('lang', e.target.value);
     };
 
-    const handleThemeClick = () => {
-
+    const handleThemeClick = ({ target }) => {
+        support.setSessionStorageItem('themeMode', target.value);
+        setValue({ name: 'themeMode', value: target.value });
     };
 
     const getFunctionForButtons = (el) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StButton } from './styled';
-import { IButton } from "src/components/UI/Button/types";
+import { IButton } from 'src/components/UI/Button/types';
 
 const Button = ({
                     id,

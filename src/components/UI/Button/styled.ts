@@ -7,7 +7,7 @@ import {
     bgColorDisabledDefault,
     disabledBorder,
 } from '../baseLayout';
-import { IBtn } from "src/components/UI/Button/types";
+import { IBtn } from 'src/components/UI/Button/types';
 
 export const StButton = styled.button <IBtn>`
   ${({ margin = '0 0 3px 0' }) => margin && `margin: ${margin}`};
