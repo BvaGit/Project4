@@ -1,7 +1,7 @@
-import { put, takeEvery, select, call } from "redux-saga/effects";
-import cookie from "js-cookie";
+import { put, takeEvery, select, call } from 'redux-saga/effects';
+import cookie from 'js-cookie';
 import { SEND_AUTH } from './actionTypes';
-import history from "../../helpers/history";
+import history from '../../helpers/history';
 import { getAuthFieldsStore } from './selectors';
 import { routes } from '../../constants/routes';
 import { fetchRegisterAuth } from '../../helpers/request';

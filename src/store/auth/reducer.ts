@@ -1,4 +1,4 @@
-import * as AT from "/src/store/auth/actionTypes";
+import * as AT from '/src/store/auth/actionTypes';
 
 const initialState = {
   fields: {

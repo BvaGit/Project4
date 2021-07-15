@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 
 import AuthInput from './AuthInput'
-import { getAuthFieldByIdStore, getAuthErrorByIdStore } from "../../../store/auth/selectors";
-import { changeAuthFieldError, changeAuthField } from "../../../store/auth/actions";
+import { getAuthFieldByIdStore, getAuthErrorByIdStore } from '../../../store/auth/selectors';
+import { changeAuthFieldError, changeAuthField } from '../../../store/auth/actions';
 
 const mapStateToProps = (state, props) => ({
     value: getAuthFieldByIdStore(state, props),

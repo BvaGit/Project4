@@ -1,4 +1,4 @@
-import * as AT from "./actionTypes";
+import * as AT from './actionTypes';
 
 export const changeRegistrationField = (payload: any) => ({type: AT.CHANGE_REGISTRATION_FIELD, payload});
 export const changeRegistrationFieldError = (payload: any) => ({type: AT.CHANGE_REGISTRATION_FIELD_ERROR, payload});

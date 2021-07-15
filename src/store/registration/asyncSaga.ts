@@ -1,7 +1,7 @@
-import { put, takeEvery, select, call } from "redux-saga/effects";
-import { regValues } from "./selectors";
+import { put, takeEvery, select, call } from 'redux-saga/effects';
+import { regValues } from './selectors';
 import { SEND_REGISTRATION } from './actionTypes';
-import history from "../../helpers/history";
+import history from '../../helpers/history';
 import { routes } from '../../constants/routes';
 import { fetchRegisterAuth } from '../../helpers/request';
 

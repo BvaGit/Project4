@@ -1,4 +1,4 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
 export const getAuthStore = (state) => state.auth;
 export const getAuthFieldsStore = createSelector(
