@@ -7,5 +7,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     register: () => dispatch(sendRegistration())
 })
 
-
 export default connect(null, mapDispatchToProps)(RegistrationButton);

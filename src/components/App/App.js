@@ -15,9 +15,6 @@ const App = () => {
                 <Route path='/registration' component={Registration}/>
             </Switch>
         </>
-
-        
-
     )
 }
 

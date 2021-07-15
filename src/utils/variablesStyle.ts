@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle `
     }
 `
 
-
 export const CenterStyleRegAuth = styled.div`
     width: 400px;
     margin: 0 auto;

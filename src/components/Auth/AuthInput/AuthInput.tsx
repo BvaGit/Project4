@@ -21,7 +21,6 @@ type inputProps = {
     error: any
 } 
 
-
 const AuthInput = ({ type, value, title, id, label, placeholder, changeField, setError, error }: inputProps) => {
     const [blured, setBlured] = useState(false);
     
@@ -36,25 +35,23 @@ const AuthInput = ({ type, value, title, id, label, placeholder, changeField, se
     }
     
     return(
-        <>
-            <BlockInput>
-                < Input 
-                    labelId={label} 
-                    type={type} 
-                    name={id}
-                    value={value}
-                    titleId={title}
-                    placeholderId={placeholder} 
-                    minLength="1"
-                    maxLength="30"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
+        <BlockInput>
+            < Input 
+                labelId={label} 
+                type={type} 
+                name={id}
+                value={value}
+                titleId={title}
+                placeholderId={placeholder} 
+                minLength="1"
+                maxLength="30"
+                onBlur={handleBlur}
+                onChange={handleChange}
                 />
-                < NoValidStyle>
-                    {(blured && error) && <div>{error}</div>}
-                </NoValidStyle>
-            </BlockInput>
-        </>
+            < NoValidStyle>
+                {(blured && error) && <div>{error}</div>}
+            </NoValidStyle>
+        </BlockInput>
     )
 }
 

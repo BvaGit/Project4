@@ -7,5 +7,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     auth: () => dispatch(sendAuth())
 })
 
-
 export default connect(null, mapDispatchToProps)(AuthBtn);

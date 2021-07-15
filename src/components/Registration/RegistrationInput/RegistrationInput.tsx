@@ -21,7 +21,6 @@ type inputProps = {
     error: any
 } 
 
-
 const RegistrationInput = ({ type, value, title, id, label, placeholder, changeField, setError, error }: inputProps) => {
     const [blured, setBlured] = useState(false);
     
@@ -36,23 +35,21 @@ const RegistrationInput = ({ type, value, title, id, label, placeholder, changeF
     }
     
     return(
-        <>
-            <BlockInput>
-                < Input 
-                    labelId={label} 
-                    type={type} 
-                    name={id}
-                    value={value}
-                    titleId={title}
-                    placeholderId={placeholder} 
-                    minLength="1"
-                    maxLength="30"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                />
-                <NoValidStyle>{(blured && error) && <div>{error}</div>}</NoValidStyle>
-            </BlockInput>
-        </>
+        <BlockInput>
+            <Input 
+                labelId={label} 
+                type={type} 
+                name={id}
+                value={value}
+                titleId={title}
+                placeholderId={placeholder} 
+                minLength="1"
+                maxLength="30"
+                onBlur={handleBlur}
+                onChange={handleChange}
+            />
+            <NoValidStyle>{(blured && error) && <div>{error}</div>}</NoValidStyle>
+        </BlockInput>
     )
 }
 
