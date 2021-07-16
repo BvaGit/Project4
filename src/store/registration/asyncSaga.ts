@@ -1,18 +1,9 @@
-import { put, takeEvery, select, call } from "redux-saga/effects";
-import { regValues } from "./selectors";
+import { put, takeEvery, select, call } from 'redux-saga/effects';
+import { regValues } from './selectors';
 import { SEND_REGISTRATION } from './actionTypes';
-import history from "../../helpers/history";
-
-const fetchRegister = async (body: any): Promise<Response> => {
-    const answer = await fetch('http://35.176.167.155:8089/registration/reg',{
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    })
-    return answer;
-}
+import history from '../../helpers/history';
+import { routes } from '../../constants/routes';
+import { fetchRegisterAuth } from '../../helpers/request';
 
 function* RegisterWorker(): any {
     try {
@@ -21,7 +12,7 @@ function* RegisterWorker(): any {
             login: data.login,
             password: data.password
         }
-        const answer = yield call(fetchRegister, body)
+        const answer = yield call(fetchRegisterAuth, routes.account.registration, body)
         if(answer.status === 201){
             history.push('/')
         }

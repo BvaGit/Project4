@@ -12,5 +12,4 @@ const RegistrationButton = ({register} : any) => {
     )
 }
 
-
 export default RegistrationButton

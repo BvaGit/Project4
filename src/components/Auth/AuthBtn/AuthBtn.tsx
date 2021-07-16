@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Button from '../../UI/Button'
 
 const AuthBtn = ({auth} : any) => {
@@ -11,6 +10,5 @@ const AuthBtn = ({auth} : any) => {
         />
     )
 }
-
 
 export default AuthBtn

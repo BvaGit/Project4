@@ -1,20 +1,10 @@
-import { put, takeEvery, select, call } from "redux-saga/effects";
-import cookie from "js-cookie";
+import { put, takeEvery, select, call } from 'redux-saga/effects';
+import cookie from 'js-cookie';
 import { SEND_AUTH } from './actionTypes';
-import history from "../../helpers/history";
-import { getAuthFieldsStore } from './selectors'
-
-const fetchAuth = async (body: any): Promise<Response> => {
-    const answer = await fetch('http://35.176.167.155:8089/authorization/auth',{
-        method: "POST",
-        headers: {
-            "Content-type": "application/json; charset=utf-8"
-        },
-        body: JSON.stringify(body)
-    })
-    
-    return answer;
-}
+import history from '../../helpers/history';
+import { getAuthFieldsStore } from './selectors';
+import { routes } from '../../constants/routes';
+import { fetchRegisterAuth } from '../../helpers/request';
 
 function* AuthWorker(): any {
     try {
@@ -23,18 +13,17 @@ function* AuthWorker(): any {
             login: data.login,
             password: data.password
         }
-        const answer = yield call(fetchAuth, body)
-        
+        const answer = yield call(fetchRegisterAuth, routes.account.auth, body);
         if(answer.status === 200){
-            const token = yield answer.text()
+            const token = yield answer.text();
             cookie.set("token", token);
             history.push('/main');
         }
     } catch (e) {
-        console.log(e)
+        console.log(e);
     }
 }
 
 export function* authWatcher(): any {
-    yield takeEvery(SEND_AUTH, AuthWorker)
+    yield takeEvery(SEND_AUTH, AuthWorker);
 }

@@ -1,14 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga'
 import { BrowserRouter } from 'react-router-dom';
-import {ConnectedRouter} from "connected-react-router";
-import { createStore, applyMiddleware, compose } from "redux";
+import {ConnectedRouter} from 'connected-react-router';
+import { createStore, applyMiddleware, compose } from 'redux';
 
-
-import rootReducer from "../src/store/rootReducers";
-import App from "./components/App";
+import rootReducer from '../src/store/rootReducers';
+import App from './components/App';
 import history from '../src/helpers/history'
 import { sagaRoot } from './store/sagaRoot';
 const sagaMiddleware = createSagaMiddleware();
