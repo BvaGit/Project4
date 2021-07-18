@@ -3,20 +3,20 @@ import * as AT from './actionTypes';
 
 const initialState: Types.TRoomsState = {
     rooms: [],
-    isRooms: false
+    connectWS: false
 }
 
-export const roomsReducer = (state = initialState, action: Types.TActionRooms): Types.TRoomsState  => {
+export const connectWsReducer = (state = initialState, action: Types.TActionRooms): Types.TRoomsState  => {
     switch(action.type) {
         case AT.GET_ROOMS:
             return {
                 ...state,
                 rooms: action.payload
             }
-        case AT.SEND_GET_ROOMS:
+        case AT.CONNECT_WS:
             return {
                 ...state,
-                isRooms: true
+                connectWS: true
             }
         default: {
             return state

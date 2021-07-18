@@ -6,3 +6,8 @@ export const routes = {
     },
     statistic: 'statistic/search-by-username'
 };
+
+export const routesWs = {
+    urlWs: 'ws://35.176.167.155:8089/',
+    gameMenu: 'game-menu'
+}

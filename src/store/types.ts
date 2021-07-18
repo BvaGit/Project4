@@ -17,7 +17,7 @@ export type TAction = {
 
 export type TRoomsState = {
     rooms: string[];
-    isRooms: boolean;
+    connectWS: boolean;
 }
 
 export type TActionRooms = {

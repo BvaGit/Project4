@@ -2,10 +2,11 @@ import React, {useEffect} from 'react';
 import { Wrapper, HeaderStyle, TitleStyled } from './styled';
 import BtnAddGame from '../BtnAddGame'
 
-const Main = ({ isUserName }: any) => {
+const Main = ({ isUserName, connectWS }: any) => {
 
     useEffect(() => {
         isUserName();
+        connectWS();
     }, [])
 
     return (
