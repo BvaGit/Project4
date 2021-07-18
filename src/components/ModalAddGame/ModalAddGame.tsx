@@ -2,7 +2,7 @@ import React from 'react';
 import Portal from '../Portal/';
 import { ModalStyle, ModalTitleStyle, SelectStyle, BtnsBlockStyle, BtnStyle } from './styled'
 
-const ModalAddGame = ({ handleCloseModal }) => {
+const ModalAddGame = ({ handleCloseModal }: any) => {
     return (
         <Portal>
             <ModalStyle>

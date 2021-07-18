@@ -1,9 +1,7 @@
 import { put, takeEvery, select, call } from 'redux-saga/effects';
 import { SagaIterator } from '@redux-saga/types';
-import { getUserName } from '../user/selectors';
 import { IS_STATISTIC } from './actionTypes';
 import cookie from 'js-cookie';
-import { getStatistic } from './actions';
 import { routes } from '../../constants/routes';
 import { fetchPostRequest } from '../../helpers/request';
 
