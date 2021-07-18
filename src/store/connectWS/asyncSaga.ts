@@ -8,22 +8,30 @@ import { SagaIterator } from '@redux-saga/types';
 
 
 
- function connection(token: any) {
-    const socket = new SockJS(`${routesWs.urlWs}${routesWs.gameMenu}`);
-    const stompClient = Stomp.over(socket);
-    stompClient.connect({ Authorization: `Bearer ${token}` }, (frame: any) => {
-        console.log('connect' + frame)
-        stompClient.subscribe('/updateRoom', (message:any) => {
-            console.log("------",JSON.parse(message.body).content)
-        })
-        // you can subscribe here!
-     });
-    // return stompClient;
+ function connect(token: any) {
+    var client = Stomp.client(`${routesWs.urlWs}${routesWs.gameMenu}`);
+    console.log(client)
+    client.connect({ Authorization: `Bearer ${token}` }, frame => {
+        console.log(frame)
+        var subscription = client.subscribe("ws://35.176.167.155:8089/updateRoom", function(message) {
+           
+          });
+    });
+
+
+    // const socket = new WebSocket(`${routesWs.urlWs}${routesWs.gameMenu}`);
+    // const stompClient = Stomp.over(socket);
+    // stompClient.connect({ Authorization: `Bearer ${token}` }, (frame: any) => {
+    //     console.log('connect' + frame)
+    //     stompClient.subscribe('/radioactive/updateRoom', (message:any) => {
+           
+    //     })
+        
+    //  });
 }
 
 function* connectWsWorker(): SagaIterator {
-    const stompClient = yield call(connection, cookie.get('token'));
-    console.log('stompClient', stompClient);
+    const stompClient = yield call(connect, cookie.get('token'));
 }
 
 export function* connectWsWatcher() {
