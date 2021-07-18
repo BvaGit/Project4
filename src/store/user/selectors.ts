@@ -1,3 +1,8 @@
 import { createSelector } from 'reselect';
 
-export const getToken = (state: any) => state.user;
+export const UserStore = (state: any) => state.user;
+
+export const getUserName = createSelector(
+    UserStore,
+    (user) => user.userName
+)

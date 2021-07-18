@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import * as color from './colors';
 
 export const GlobalStyle = createGlobalStyle `
     *,
@@ -9,6 +10,10 @@ export const GlobalStyle = createGlobalStyle `
         box-sizing: border-box;
         outline: none;
     }
+    body {
+        background: ${color.bgGradient};
+        font-family: Arial, Helvetica, sans-serif;
+    }
 `
 
 export const CenterStyleRegAuth = styled.div`
@@ -16,10 +21,10 @@ export const CenterStyleRegAuth = styled.div`
     margin: 0 auto;
 ` 
 
-export const DefaultDark = styled.div<{colorFont: boolean, background:boolean}> `
+export const DefaultDark = styled.div `
     height: 100vh;
-    background: ${props => (props.background ? "#fff" : "linear-gradient(45deg, #21303F, #1D3246)")} ;
-    color: ${props => (props.colorFont ? "#1D3246" : "#fff")};
+    background: ${color.bgGradient};
+    color: ${color.textLight};
 `
 
 export const TitleRegAuth = styled.h2 `

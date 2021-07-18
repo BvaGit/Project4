@@ -1,4 +1,5 @@
 import * as AT from '/src/store/auth/actionTypes';
+import * as Types from '../types';
 
 const initialState = {
   fields: {
@@ -9,10 +10,10 @@ const initialState = {
     login: "",
     password: "",
   },
-  isAuth: false
+  isSuccess: false
 };
 
-export const authReducer = (state = initialState, action: any) => {
+export const authReducer = (state = initialState, action: Types.TAction): Types.TRegistrAuth  => {
   switch (action.type) {
     case AT.CHANGE_AUTH_FIELD:
       // eslint-disable-next-line no-case-declarations
@@ -35,7 +36,7 @@ export const authReducer = (state = initialState, action: any) => {
     case AT.SEND_AUTH:
       return {
         ...state,
-        isAuth: true
+        isSuccess: true
       }
     default:
       return state;

@@ -1,6 +1,26 @@
 import { createSelector } from 'reselect';
 
-export const getRegStore = (state: any) => state.registration;
+type TRegistrationtData = {
+    fields: {
+        login: string,
+        password: string,
+        confirmPassword: string
+    }
+    errors: {
+        login: string,
+        password: string,
+        confirmPassword: string
+    }
+};
+  
+type TRegistrationState = TRegistrationtData
+  
+type TState = {
+    registration: TRegistrationState
+};
+
+
+export const getRegStore = (state: TState): TRegistrationState => state.registration;
 export const getRegFieldsStore = createSelector(
     getRegStore,
     (registration)=> registration.fields

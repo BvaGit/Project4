@@ -25,5 +25,5 @@
     "include": [
         "**/*.ts",
         "**/*.tsx"
-        ]
+, "src/components/App/App.js"        ]
 }

@@ -4,4 +4,5 @@ export const routes = {
         registration: 'registration/reg',
         auth: 'authorization/auth',
     },
+    statistic: 'statistic/search-by-username'
 };

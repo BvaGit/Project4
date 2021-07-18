@@ -1,4 +1,6 @@
 import * as AT from './actionTypes';
+import * as Types from '../types';
+
 
 const initialState = {
   fields:{
@@ -11,10 +13,10 @@ const initialState = {
     password:"",
     confirmPassword:""
   },
-  isRegister: false
+  isSuccess: false
 };
 
-export const registrationReducer = (state = initialState, action) => {
+export const registrationReducer = (state = initialState, action: Types.TAction): Types.TRegistrAuth  => {
   switch (action.type) {
     case AT.CHANGE_REGISTRATION_FIELD:
       // eslint-disable-next-line no-case-declarations
@@ -43,12 +45,12 @@ export const registrationReducer = (state = initialState, action) => {
             ...action.payload
           }
         }
-        case AT.SEND_REGISTRATION:
+      case AT.SEND_REGISTRATION:
           return {
             ...state,
             isRegister: true
           }
-    default:
-      return state;
+      default:
+        return state;
   }
 };
