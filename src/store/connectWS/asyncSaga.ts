@@ -14,7 +14,7 @@ import { SagaIterator } from '@redux-saga/types';
     client.connect({ Authorization: `Bearer ${token}` }, frame => {
         console.log(frame)
         var subscription = client.subscribe("ws://35.176.167.155:8089/updateRoom", function(message) {
-           
+           // function massege
           });
     });
 
