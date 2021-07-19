@@ -8,7 +8,7 @@ const ButtonsHeader = ({
                      name,
                      onClick,
                      title,
-                     type = 'button',
+                     type,
                      value,
                      borderRadius,
                      isDisabled,

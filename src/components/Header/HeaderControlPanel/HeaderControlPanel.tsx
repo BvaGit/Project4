@@ -1,12 +1,31 @@
 import React from 'react';
 import { StControl } from 'src/components/Header/HeaderControlPanel/styled';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { HEADER_CONTROL_BTNS } from 'src/constants/componentsConsts';
 import ButtonsHeader  from '../../UI/Button/ButtonsHeader';
 import { colorDefault } from '../../UI/baseLayout';
+import { support } from '../../../helpers/support';
 
 
-const HeaderControlPanel = () => {
+    const HeaderControlPanel = ({ themeMode, setValue, history }) => {
+        const { i18n } = useTranslation();
+        const handleChangeLanguage = (e) => {
+            i18n.changeLanguage(e.target.value);
+            localStorage.setItem('lang', e.target.value);
+            console.log('tyya')
+        };
+
+        const handleThemeClick = ({ target }) => {
+            support.setSessionStorageItem('themeMode', target.value);
+            setValue({ name: 'themeMode', value: target.value });
+        };
+
+        const getFunctionForButtons = (el) => {
+            switch (el.id) {
+                case 'theme_btn': return handleThemeClick;
+                default: return handleChangeLanguage;
+            }
+        };
     return(
     <StControl>
         {HEADER_CONTROL_BTNS.map((el) => {
@@ -23,7 +42,7 @@ const HeaderControlPanel = () => {
                     borderRadius="0px"
                     value={el.value}
                     bgColor="transparent"
-                    onClick={onclick}
+                    onClick={getFunctionForButtons(el)}
                 />
             );
         })}
