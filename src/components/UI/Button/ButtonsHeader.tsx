@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StButton } from './styled';
 import { IButton } from 'src/components/UI/Button/types';
@@ -8,7 +8,7 @@ const ButtonsHeader = ({
                      name,
                      onClick,
                      title,
-                     type = 'button',
+                     type,
                      value,
                      borderRadius,
                      isDisabled,
