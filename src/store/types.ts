@@ -15,8 +15,14 @@ export type TAction = {
     payload?: TPayloadRegistrAuth;
 }
 
+export type TRoom = {
+    creatorLogin: string;
+    gameType: string;
+    id: string;
+}
+
 export type TRoomsState = {
-    rooms: string[];
+    rooms: TRoom[] | [];
     connectWS: boolean;
 }
 
