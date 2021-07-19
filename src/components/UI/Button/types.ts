@@ -18,7 +18,7 @@ export interface IBtn {
 
 }
 
-export interface IButton{
+export interface IButton {
     id: string;
     name?: string;
     onClick: (e : React.MouseEvent<HTMLElement, MouseEvent>) => void;
