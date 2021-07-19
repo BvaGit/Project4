@@ -1,7 +1,6 @@
 import * as AT from './actionTypes';
 import * as Types from '../types';
 
-
 const initialState = {
   fields:{
     login: '',
