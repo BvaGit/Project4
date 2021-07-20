@@ -12,8 +12,7 @@ function* StatisticWorker(): SagaIterator {
         const data = {
            'username': userName
         }
-        console.log("----",data);
-
+        
         const answer = yield call(fetchPostRequest, routes.statistic, data);
         console.log(answer)
         // yield put(getStatistic(answer));

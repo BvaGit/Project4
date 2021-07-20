@@ -3,13 +3,12 @@ import { InputStyle, LabelStyle } from './styled';
 
 type TInputProps = {
     title: string,
-    labelId: string,
+    label: string,
     id: string,
     type: string,
     name: string,
     value: string,
-    titleId: string,
-    placeholderId: string,
+    placeholder: string,
     minLength: any,
     maxLength: any,
     onBlur: any,
@@ -17,17 +16,16 @@ type TInputProps = {
 } 
 
 
-const Input = ({ title, labelId, id, type, name, value, titleId, placeholderId, minLength, maxLength, onBlur, onChange }: TInputProps) => {
-
+const Input = ({ title, label, id, type, name, value, placeholder, minLength, maxLength, onBlur, onChange }: TInputProps) => {
     return (
-        <LabelStyle>{labelId}
+        <LabelStyle>{label}
             <InputStyle 
                 id={id}
                 type={type}
                 name={name}
                 value={value}
                 title={title}
-                placeholder={placeholderId}
+                placeholder={placeholder}
                 minLength={minLength}
                 maxLength={maxLength}
                 onBlur={onBlur}

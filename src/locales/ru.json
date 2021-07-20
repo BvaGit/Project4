@@ -1,4 +1,14 @@
 {
   "english_translate_btn": "EN",
-  "russian_translate_btn": "RU"
+  "russian_translate_btn": "RU",
+  "login_label_signIn": "Логин",
+  "password_label_signIn": "Пароль",
+  "label_signIn": "Авторизация",
+  "login_placeholder_signIn": "Введите ваш логин",
+  "password_placeholder_signIn": "Введите ваш пароль",
+  "input_signIn": "Войти",
+  "link_signUp": "Зарегистрироваться",
+  "notification_invalid_login": "Неверный логин. Попробуйте еще раз",
+  "notification_invalid_password_empty": "Пароль не может быть пустым",
+  "notification_invalid_password": "Неверный пароль. Попробуйте еще раз"
 }
