@@ -1,4 +1,14 @@
 {
   "english_translate_btn": "EN",
-  "russian_translate_btn": "RU"
+  "russian_translate_btn": "RU",
+  "login_label_signIn": "Login",
+  "password_label_signIn": "Password",
+  "label_signIn": "SIGN IN",
+  "login_placeholder_signIn": "Enter your login",
+  "password_placeholder_signIn": "Enter your password",
+  "input_signIn": "SIGN IN",
+  "link_signUp": "Sign up",
+  "notification_invalid_login": "Invalid login",
+  "notification_invalid_password_empty": "Password can't be empty",
+  "notification_invalid_password": "Invalid password"
 }

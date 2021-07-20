@@ -10,7 +10,6 @@ type inputProps = {
     type: string,
     name: string,
     value: string,
-    titleId: string,
     placeholder: string,
     minLength: any,
     maxLength: any,
@@ -33,16 +32,16 @@ const AuthInput = ({ type, value, title, id, label, placeholder, changeField, se
         setBlured(true);
         setError({[id]: validateRegField(id, value) })
     }
-    
+
     return(
         <BlockInput>
-            < Input 
-                labelId={label} 
+            <Input
+                label={label}
                 type={type} 
                 name={id}
                 value={value}
-                titleId={title}
-                placeholderId={placeholder} 
+                title={title}
+                placeholder={placeholder}
                 minLength="1"
                 maxLength="30"
                 onBlur={handleBlur}
