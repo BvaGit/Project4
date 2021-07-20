@@ -1,10 +1,11 @@
 import React from 'react';
 import { RoomStyle } from './styled';
+import Button from '../UI/Button';
 
 const RoomItemGame = ({ creatorLogin, userName, gameType }) => {
 
     const roomOwner: string = creatorLogin === userName ? 'your_room' : creatorLogin;
-    const onClickDistributor = (creatorLogin: string, userLogin: string) : TDistResult => {
+    const onClickDistributor = (creatorLogin: string, userLogin: string) => {
         return creatorLogin === userLogin
             ? {
                 content: 'play_with_bot',
@@ -16,10 +17,17 @@ const RoomItemGame = ({ creatorLogin, userName, gameType }) => {
             };
     };
 
+    const {content, onClickFunc} = onClickDistributor(creatorLogin, userName);
+
     return (
         <RoomStyle>
             <p>Имя: {roomOwner} </p>
             <p>Игра: {gameType} </p>
+            <Button 
+                type="button"
+                textId={content}
+                onClick={onClickFunc}
+            />
         </RoomStyle>
     )
 }

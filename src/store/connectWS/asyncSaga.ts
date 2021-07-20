@@ -21,9 +21,14 @@ export const createStompChannel = (stompClient: CompatClient) => eventChannel((e
         roomsSub.unsubscribe();
     };
 });
+
 export const init = (stompClient: CompatClient) => {
     stompClient.send(routesWs.updateRoom);
 };
+
+// export const createRoom = (stompClient: CompatClient) => {
+//     stompClient.send(routesWs.updateRoom);
+// };
 
 function* connectWsWorker(): SagaIterator {
     const stompClient = yield call(connect, cookie.get('token'));
