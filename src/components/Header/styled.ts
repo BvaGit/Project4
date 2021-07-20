@@ -5,5 +5,5 @@ export const StHeader = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: 10vh;
-  background: #21303F;
+  //background: #21303F;
 `
