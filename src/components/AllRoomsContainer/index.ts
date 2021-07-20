@@ -1,3 +1,11 @@
 import AllRoomsContainer from './AllRoomsContainer';
+import { connect } from 'react-redux';
+import { getUserName } from '../../store/user/selectors';
+import { getRooms } from '../../store/connectWS/selectors';
 
-export default AllRoomsContainer;
+const mapStateToProps = (state) => ({
+    userName: getUserName(state),
+    rooms: getRooms(state)
+})
+
+export default connect(mapStateToProps, null)(AllRoomsContainer);

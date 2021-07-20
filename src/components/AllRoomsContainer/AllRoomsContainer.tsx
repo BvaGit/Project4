@@ -1,9 +1,24 @@
 import React from 'react';
+import { RoomsContainer } from './styled';
+import RoomItemGame from '../RoomItemGame/';
 
-const AllRoomsContainer = () => {
+const AllRoomsContainer = ({ userName, rooms }: any) => {
 
     return (
-        <h1>Rooms</h1>
+        <RoomsContainer>
+            <h1>Игровые комнаты</h1>
+            {rooms.map((room) => {
+                return (
+                    <RoomItemGame
+                        key={room.id}
+                        id={room.id}
+                        creatorLogin={room.creatorLogin}
+                        userName={userName}
+                        gameType={room.gameType}
+                    />
+                );
+            })}
+        </RoomsContainer>
     )
 }
 

@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
-import { Wrapper, HeaderStyle, TitleStyled } from './styled';
+import { Wrapper, HeaderStyle, TitleStyled, WrapperGame } from './styled';
 import BtnAddGame from '../BtnAddGame'
 import TicTacToe from '../TicTacToe/';
 import AllRoomsContainer from '../AllRoomsContainer/';
+import GameContainer from '../GameContainer/';
 
 const Main = ({ isUserName, connectWS }: any) => {
 
@@ -14,11 +15,12 @@ const Main = ({ isUserName, connectWS }: any) => {
     return (
             <Wrapper>
                 <HeaderStyle>
-                    <TitleStyled>Доступные комнаты</TitleStyled>
                     <BtnAddGame/>
                 </HeaderStyle>
-                < AllRoomsContainer />
-                <TicTacToe/>
+                <WrapperGame>
+                    <AllRoomsContainer />
+                    <GameContainer/>
+                </WrapperGame>
             </Wrapper>
     )
 }

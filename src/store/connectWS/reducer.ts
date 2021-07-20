@@ -2,7 +2,7 @@ import * as Types from '../types';
 import * as AT from './actionTypes';
 
 const initialState: Types.TRoomsState = {
-    rooms: [],
+    rooms: [{creatorLogin: "ufora", gameType: "Checkers", id:"a1b56ce2-bce1-44eb-b6c1-eee5ff112f2c"}],
     connectWS: false
 }
 

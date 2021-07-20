@@ -11,6 +11,6 @@ export function* sagaRoot() {
         authWatcher(),
         SetNameUserWatcher(),
         StatisticWatcher(),
-        connectWsWatcher()
+        //connectWsWatcher()
     ])
 }

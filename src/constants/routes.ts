@@ -8,6 +8,10 @@ export const routes = {
 };
 
 export const routesWs = {
-    urlWs: 'ws://35.176.167.155:8089/',
-    gameMenu: 'game-menu'
+    urlWs: 'ws://35.176.167.155:8082/',
+    gameMenu: 'game-menu',
+    topic: {
+        rooms: '/topic/rooms'
+    },
+    updateRoom: '/radioactive/update-room'
 }

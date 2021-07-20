@@ -18,3 +18,7 @@ export const TitleStyled = styled.h2 `
     text-transform: uppercase;
     color: ${color.textLight};
 `
+
+export const WrapperGame = styled.div `
+    display: flex;
+`
