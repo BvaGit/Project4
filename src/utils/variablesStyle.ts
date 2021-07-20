@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle `
     body {
         background: ${color.bgGradient};
         font-family: Arial, Helvetica, sans-serif;
+        position: relative;
     }
 `
 

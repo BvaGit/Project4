@@ -12,6 +12,10 @@ export const ModalStyle = styled.div `
     border: 1px solid #1D3246;
     margin: 0 auto;
     box-shadow: 0 0 20px rgba(0,0,0, .2);
+    position: fixed;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
 `
 
 export const ModalTitleStyle = styled.p `
