@@ -3,37 +3,38 @@ import RegistrationInput from './RegistrationInput';
 import RegistrationButton from './RegistrationButton';
 import { CenterStyleRegAuth, DefaultDark, TitleRegAuth, Sign } from '../../utils/variablesStyle';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Registration = () => {
-    const title = 'min 1 max 25, no spases, no empties';
+    const { t } = useTranslation()
     return (
         <DefaultDark>
             <CenterStyleRegAuth>
-                <TitleRegAuth>Sigin up</TitleRegAuth>
+                <TitleRegAuth>{t("reg_label_signUp")}</TitleRegAuth>
                 <RegistrationInput
                     id="login" 
                     type="text"
-                    title={title}
-                    placeholder="Enter your login" 
-                    label="Login" 
+                    title={t("title_auth")}
+                    placeholder={t("reg_input")}
+                    label={t("reg_label")}
                 />
                 <RegistrationInput
                     id="password" 
                     type="password"
-                    title={title}
-                    placeholder="Enter your password" 
-                    label="Password" 
+                    title={t("title_auth")}
+                    placeholder={t("reg_place_password")}
+                    label={t("reg_label_pass")}
                 />
                 <RegistrationInput
                     id="confirmPassword" 
                     type="password"
-                    title={title}
-                    placeholder="Confirm your password" 
-                    label="Repeat password" 
+                    title={t("title_auth")}
+                    placeholder={t("reg_place_password_conf")}
+                    label={t("reg_label_confirm")}
                 />
                 <RegistrationButton/>
                 <NavLink to='/'>
-                    <Sign>Sign in</Sign>
+                    <Sign>{t("reg_link")}</Sign>
                 </NavLink>
             </CenterStyleRegAuth>
         </DefaultDark>

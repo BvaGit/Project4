@@ -10,5 +10,14 @@
   "link_signUp": "Sign up",
   "notification_invalid_login": "Invalid login",
   "notification_invalid_password_empty": "Password can't be empty",
-  "notification_invalid_password": "Invalid password"
+  "notification_invalid_password": "Invalid password",
+  "reg_label_signUp": "Sign Up",
+  "reg_label": "Login",
+  "reg_input": "Enter your login",
+  "reg_place_password": "Enter your password",
+  "reg_place_password_conf": "Confirm your password",
+  "reg_link": "Sign In",
+  "reg_label_confirm": "Confirm password",
+  "reg_label_pass": "Password",
+  "title_auth": "min 1 max 25, no spaces, no empties"
 }
