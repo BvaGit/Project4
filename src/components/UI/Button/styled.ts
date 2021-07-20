@@ -37,7 +37,7 @@ export const StButton = styled.button <IBtn>`
     }
 `;
 
-export const ButtonStyle = styled.button<{bgColorBtn: boolean}> `
+export const ButtonStyle = styled.button<{bgColorBtn: boolean, colorBtn: boolean}> `
     width: 100%;
     border-radius: 50px;
     padding: 10px;

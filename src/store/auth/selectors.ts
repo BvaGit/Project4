@@ -7,7 +7,7 @@ export const getAuthFieldsStore = createSelector(
 );
 export const getAuthFieldByIdStore = createSelector(
   getAuthFieldsStore,
-  (_state, props) => props.id,
+  (_state, props: any) => props.id,
   (fields, id) => fields[id]
 );
 export const getAuthErrorsStore = createSelector(

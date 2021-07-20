@@ -1,6 +1,6 @@
 const validation = {
-    'loginValidation': /^[a-zA-z]{1}[a-zA-Z]{1,25}$/,
-    'passwordValidation': /^(?=.*[a-z])(?=.*\d)[a-z\d]{1,25}$/
+    'loginValidation': /^[a-z0-9A-Z]{1,25}/i,
+    'passwordValidation': /^[a-z0-9A-Z]{6,25}/i,
 }
 
 export default validation;

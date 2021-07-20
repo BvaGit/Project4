@@ -1,11 +1,12 @@
 import { put, takeEvery, select, call } from 'redux-saga/effects';
+import { SagaIterator } from '@redux-saga/types';
 import { regValues } from './selectors';
 import { SEND_REGISTRATION } from './actionTypes';
 import history from '../../helpers/history';
 import { routes } from '../../constants/routes';
 import { fetchRegisterAuth } from '../../helpers/request';
 
-function* RegisterWorker(): any {
+function* RegisterWorker(): SagaIterator {
     try {
         const data = yield select(regValues);
         const body = {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-
+import { Dispatch } from 'redux';
 import AuthInput from './AuthInput'
 import { getAuthFieldByIdStore, getAuthErrorByIdStore } from '../../../store/auth/selectors';
 import { changeAuthFieldError, changeAuthField } from '../../../store/auth/actions';
@@ -9,7 +9,7 @@ const mapStateToProps = (state, props) => ({
     error: getAuthErrorByIdStore(state, props)
 })
 
-const mapDispatchToProps = (dispatch) =>({
+const mapDispatchToProps = (dispatch: Dispatch) =>({
     changeField:(data) => dispatch(changeAuthField(data)),
     setError:(data) => dispatch(changeAuthFieldError(data)),
 })

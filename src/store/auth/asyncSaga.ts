@@ -1,12 +1,14 @@
 import { put, takeEvery, select, call } from 'redux-saga/effects';
+import { SagaIterator } from '@redux-saga/types';
 import cookie from 'js-cookie';
 import { SEND_AUTH } from './actionTypes';
 import history from '../../helpers/history';
 import { getAuthFieldsStore } from './selectors';
+import { setUserName } from '../user/actions';
 import { routes } from '../../constants/routes';
 import { fetchRegisterAuth } from '../../helpers/request';
 
-function* AuthWorker(): any {
+function* AuthWorker(): SagaIterator {
     try {
         const data = yield select(getAuthFieldsStore);
         const body = {
@@ -17,6 +19,8 @@ function* AuthWorker(): any {
         if(answer.status === 200){
             const token = yield answer.text();
             cookie.set("token", token);
+            cookie.set("userName", data.login);
+            yield put(setUserName(data.login));
             history.push('/main');
         }
     } catch (e) {
@@ -24,6 +28,6 @@ function* AuthWorker(): any {
     }
 }
 
-export function* authWatcher(): any {
+export function* authWatcher() {
     yield takeEvery(SEND_AUTH, AuthWorker);
 }

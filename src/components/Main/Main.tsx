@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { Wrapper, HeaderStyle, TitleStyled } from './styled';
+import BtnAddGame from '../BtnAddGame'
 
-const Main = () => {
-    let str: string;
-    str = "HELLO";
+const Main = ({ isUserName, connectWS }: any) => {
+
+    useEffect(() => {
+        isUserName();
+        connectWS();
+    }, [])
 
     return (
         <>
-           {str}
+            <Wrapper>
+                <HeaderStyle>
+                    <TitleStyled>Доступные комнаты</TitleStyled>
+                    <BtnAddGame/>
+                </HeaderStyle>
+            </Wrapper>
         </>
     )
 }

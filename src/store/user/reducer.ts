@@ -1,16 +1,22 @@
 import * as AT from "./actionTypes";
 
 const initialState = {
-  token: ''
+  userName: '',
+  isUserName: false
 };
 
-export const registrationReducer = (state = initialState, action: any) => {
+export const userReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case AT.GET_TOKEN: {
+    case AT.SET_USER_NAME: {
       return {
         ...state,
-        token: action.payload
+        userName: action.payload
       }
+    }
+    case AT.IS_USER_NAME: 
+    return {
+      ...state,
+      isUserName: true
     }
     default:
       return state;
