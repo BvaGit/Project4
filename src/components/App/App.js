@@ -6,12 +6,15 @@ import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import { GlobalStyle } from '../../utils/variablesStyle';
 import { useTranslation } from 'react-i18next';
-import {StAppDiv} from "./styled";
+import { StAppDiv } from './styled';
+import { useTheme } from '../Hook/useTheme';
+
 
 const App = () => {
-    const { i18n } = useTranslation()
+    const { i18n } = useTranslation();
+    const { colors, theme } = useTheme();
     return (
-        <StAppDiv lang={i18n.language}>
+        <StAppDiv lang={i18n.language} colors={colors} theme={theme}>
             <GlobalStyle />
             <Header />
             <Switch>

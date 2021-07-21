@@ -4,20 +4,19 @@ import { useTranslation } from 'react-i18next';
 import { HEADER_CONTROL_BTNS } from 'src/constants/componentsConsts';
 import ButtonsHeader  from '../../UI/Button/ButtonsHeader';
 import { colorDefault } from '../../UI/baseLayout';
-import { support } from '../../../helpers/support';
+import { useTheme } from 'src/components/Hook/useTheme';
 
 
-    const HeaderControlPanel = ({ themeMode, setValue, history }) => {
+const HeaderControlPanel = () => {
         const { i18n } = useTranslation();
+        const { changeTheme } = useTheme();
         const handleChangeLanguage = (e) => {
             i18n.changeLanguage(e.target.value);
             localStorage.setItem('lang', e.target.value);
-            console.log('tyya')
         };
 
         const handleThemeClick = ({ target }) => {
-            support.setSessionStorageItem('themeMode', target.value);
-            setValue({ name: 'themeMode', value: target.value });
+            changeTheme();
         };
 
         const getFunctionForButtons = (el) => {

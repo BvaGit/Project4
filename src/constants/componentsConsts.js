@@ -1,21 +1,16 @@
 export const HEADER_CONTROL_BTNS = [{
     id: 'theme_btn',
-    value: 'light',
-    content: '🌗',
-},
-{
-    id: 'theme_btn',
     value: 'dark',
-    content: '🌗',
+    content: '🌓',
 },
 {
     id: 'en',
-    content: 'EN',
+    content: 'english_translate_btn',
     value: 'en',
 },
 {
     id: 'ru',
-    content: 'RU',
+    content: 'russian_translate_btn',
     value: 'ru',
 }
 ]
