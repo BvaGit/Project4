@@ -6,3 +6,8 @@ export const getRooms = createSelector(
     connectWsStore,
     (connectWs) => connectWs.rooms
 )
+
+export const typeGame = createSelector(
+    connectWsStore,
+    (connectWs) => connectWs.gameType
+)

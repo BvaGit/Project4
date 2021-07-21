@@ -15,5 +15,5 @@ export const routesWs = {
         boot: '/topic/bot/',
     },
     updateRoom: '/radioactive/update-room',
-    createRoom: '/radioactive/createRoom'
+    createRoom: '/radioactive/create-room'
 }
