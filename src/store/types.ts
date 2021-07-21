@@ -21,9 +21,13 @@ export type TRoom = {
     id: string;
 }
 
+
 export type TRoomsState = {
     rooms: TRoom[] | [];
     connectWS: boolean;
+    step: string;
+    time: string;
+    id: string,
     gameType: string;
     createGame: boolean;
 }

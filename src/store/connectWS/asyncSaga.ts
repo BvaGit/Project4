@@ -4,7 +4,7 @@ import { Stomp, CompatClient } from '@stomp/stompjs';
 import { CONNECT_WS, CREATE_GAME } from './actionTypes';
 import { getRooms } from './actions';
 import { getUserName } from '../user/selectors';
-import { typeGame } from '../connectWS/selectors';
+import { typeGame, getStep, getTime } from '../connectWS/selectors';
 import cookie from 'js-cookie';
 import { v4 as uuidv4 } from 'uuid';
 import { eventChannel, SagaIterator } from 'redux-saga';
@@ -51,6 +51,23 @@ export function* createRoomWorker(): SagaIterator {
     console.log(body)
     yield call([stompClient, stompClient.send], routesWs.createRoom, { Authorization: token }, JSON.stringify(body));
     yield call([stompClient, stompClient.send], routesWs.updateRoom, { Authorization: token });
+}
+
+export function* gameWorker(): SagaIterator{
+    const creatorLogin = yield select(getUserName); 
+    const gameType = yield select(typeGame);
+    const step = yield select(getStep);
+    const time = yield select(getTime);
+    const body = {
+        gameType,
+        stepDto: {
+            creatorLogin,
+            step,
+            time,
+            id: "1111"
+        }
+    }
+    console.log(body);
 }
 
 export function* connectWsWatcher() {

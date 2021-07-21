@@ -3,6 +3,9 @@ import * as AT from './actionTypes';
 
 const initialState: Types.TRoomsState = {
     rooms: [{creatorLogin: "ufora", gameType: "Checkers", id:"a1b56ce2-bce1-44eb-b6c1-eee5ff112f2c"}],
+    step: '',
+    time: '',
+    id: '',
     connectWS: false,
     createGame: false,
     gameType: 'Checkers'
@@ -29,6 +32,16 @@ export const connectWsReducer = (state = initialState, action: Types.TActionRoom
             return {
                 ...state,
                 createGame: true
+            }
+        case AT.STEP:
+            return {
+                ...state,
+                step: action.payload
+            }
+        case AT.TIME: 
+            return {
+                ...state,
+                time: action.payload
             }
         default: {
             return state

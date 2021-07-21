@@ -11,3 +11,13 @@ export const typeGame = createSelector(
     connectWsStore,
     (connectWs) => connectWs.gameType
 )
+
+export const getStep = createSelector(
+    connectWsStore,
+    (connectWs) => connectWs.step
+)
+
+export const getTime = createSelector(
+    connectWsStore,
+    (connectWs) => connectWs.time
+)
