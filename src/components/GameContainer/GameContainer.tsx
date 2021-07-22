@@ -1,11 +1,13 @@
 import React from 'react';
 import { ContainerGame } from './styled';
 import TicTacToe from '../TicTacToe';
+import Checkers from 'src/components/Checkers';
 
 const GameContainer = () => {
     return (
         <ContainerGame>
-            <TicTacToe/>
+            <Checkers />
+            <TicTacToe />
         </ContainerGame>
     )
 }
