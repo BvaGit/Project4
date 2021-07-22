@@ -24,9 +24,11 @@ export type TRoom = {
 export type TRoomsState = {
     rooms: TRoom[] | [];
     connectWS: boolean;
+    gameType: string;
+    createGame: boolean;
 }
 
 export type TActionRooms = {
     type: String;
-    payload: string[];
+    payload: string;
 }

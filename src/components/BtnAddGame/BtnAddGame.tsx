@@ -3,7 +3,7 @@ import { BtnAddGameStyle } from './styled';
 import ModalAddGame from '../ModalAddGame/';
 
 const BtnAddGame = () => {
-    const [opneModal, setOpneModal] = useState(true)
+    const [opneModal, setOpneModal] = useState(false)
     const handelClick = () => setOpneModal(prev => !prev)
     return (
         <>

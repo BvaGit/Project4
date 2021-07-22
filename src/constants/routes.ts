@@ -11,7 +11,9 @@ export const routesWs = {
     urlWs: 'ws://35.176.167.155:8082/',
     gameMenu: 'game-menu',
     topic: {
-        rooms: '/topic/rooms'
+        rooms: '/topic/rooms',
+        boot: '/topic/bot/',
     },
-    updateRoom: '/radioactive/update-room'
+    updateRoom: '/radioactive/update-room',
+    createRoom: '/radioactive/create-room'
 }
