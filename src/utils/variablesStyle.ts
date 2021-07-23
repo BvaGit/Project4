@@ -19,17 +19,15 @@ export const GlobalStyle = createGlobalStyle `
 
 export const CenterStyleRegAuth = styled.div`
     width: 400px;
-    margin: 0 auto;
+    margin: 12% auto;
 ` 
 
 export const DefaultDark = styled.div `
-    height: 100vh;
-    background: ${color.bgGradient};
     color: ${color.textLight};
 `
 
 export const TitleRegAuth = styled.h2 `
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: system-ui;
     text-transform: uppercase;
     text-align: center;
 `

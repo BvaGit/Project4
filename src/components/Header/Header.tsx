@@ -2,12 +2,15 @@ import React from 'react';
 import { StHeader } from 'src/components/Header/styled';
 import Logo from 'src/components/Header/Logo/Logo';
 import HeaderControlPanel from 'src/components/Header/HeaderControlPanel/HeaderControlPanel';
+import { useTheme } from '../Hook/useTheme';
+
 
 const Header = () => {
-    return(
-        <StHeader>
+    const { colors, theme } = useTheme();
+    return (
+        <StHeader colors={colors} theme={theme}>
             <Logo />
-            <HeaderControlPanel/>
+            <HeaderControlPanel />
         </StHeader>
     )
 }

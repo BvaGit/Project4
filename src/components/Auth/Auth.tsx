@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Registration = () => {
-    const title = 'min 1 max 25, no spaces, no empties';
     const { t } = useTranslation();
     return (
         <DefaultDark>
@@ -15,14 +14,14 @@ const Registration = () => {
                 <AuthInput
                     id="login"
                     type="text"
-                    title={title}
+                    title={t("title_auth")}
                     placeholder={t("login_placeholder_signIn")}
                     label={t("login_label_signIn")}
                 />
                 <AuthInput
                     id="password" 
                     type="password"
-                    title={title}
+                    title={t("title_auth")}
                     placeholder={t("password_placeholder_signIn")}
                     label={t("password_label_signIn")}
                 />

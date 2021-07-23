@@ -1,3 +1,4 @@
-import App from './App'
+import App from './App';
+import { withTheme } from '../HOC';
 
-export default App;
+export default withTheme(App);
