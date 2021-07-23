@@ -26,8 +26,8 @@ export const white = '#ffffff';
 
 export const colors = {
     light: {
-        linearGradientOne: "#F2CF58",
-        linearGradientTwo: "#F11F61",
+        linearGradientOne: "#e2bf4b",
+        linearGradientTwo: "#d02554",
     },
     dark: {
         linearGradientOne: "#000000",

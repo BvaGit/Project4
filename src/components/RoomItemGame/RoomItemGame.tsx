@@ -22,7 +22,9 @@ const RoomItemGame = ({ creatorLogin, userName, gameType }) => {
     return (
         <RoomStyle>
             <p>Имя: {roomOwner} </p>
+            &nbsp;
             <p>Игра: {gameType} </p>
+            &nbsp;
             <Button 
                 type="button"
                 textId={content}

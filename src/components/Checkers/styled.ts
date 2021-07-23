@@ -10,5 +10,5 @@ export const StChessPlate = styled.div < IDiv > `
     flex-wrap: wrap;
     flex-direction: row-reverse;
     color: gray;
-    margin: 10px auto;
+    margin: 176px auto;
 `;
