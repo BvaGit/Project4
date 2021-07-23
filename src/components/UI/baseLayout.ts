@@ -30,7 +30,7 @@ export const colors = {
         linearGradientTwo: "#d02554",
     },
     dark: {
-        linearGradientOne: "#000000",
+        linearGradientOne: "#191919",
         linearGradientTwo: "#073a5c",
     },
 };

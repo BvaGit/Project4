@@ -19,5 +19,7 @@
   "reg_link": "Sign In",
   "reg_label_confirm": "Confirm password",
   "reg_label_pass": "Password",
-  "title_auth": "min 1 max 25, no spaces, no empties"
+  "title_auth": "min 1 max 25, no spaces, no empties",
+  "title_rooms": "Game Rooms",
+  "name_room": ""
 }
