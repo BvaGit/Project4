@@ -6,4 +6,5 @@ export const RoomsContainer = styled.div `
     align-items: center;
     width: 30%;
     border-right: 1px solid #fff;
+    max-height: 100%;
 `
