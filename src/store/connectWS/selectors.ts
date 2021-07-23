@@ -7,6 +7,11 @@ export const getRooms = createSelector(
     (connectWs) => connectWs.rooms
 )
 
+export const getCreatorLogin = createSelector(
+    connectWsStore,
+    (connectWs) => connectWs.creatorLogin
+)
+
 export const typeGame = createSelector(
     connectWsStore,
     (connectWs) => connectWs.gameType
@@ -20,4 +25,9 @@ export const getStep = createSelector(
 export const getTime = createSelector(
     connectWsStore,
     (connectWs) => connectWs.time
+)
+
+export const getGameId = createSelector(
+    connectWsStore,
+    (connectWs) => connectWs.id
 )

@@ -13,7 +13,12 @@ export const routesWs = {
     topic: {
         rooms: '/topic/rooms',
         boot: '/topic/bot/',
+        errors: '/user/topic/errors',
+        userGame: '/user/topic/game/',
+        game: '/topic/game/'
     },
     updateRoom: '/radioactive/update-room',
-    createRoom: '/radioactive/create-room'
+    createRoom: '/radioactive/create-room',
+    joinRoom: '/radioactive/join-room',
+    getStepOrder: '/radioactive/get-step-order'
 }

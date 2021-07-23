@@ -4,3 +4,7 @@ export const GAME_TYPE = 'GAME_TYPE';
 export const CREATE_GAME = 'CREATE_GAME';
 export const STEP = 'STEP';
 export const TIME = 'TIME';
+export const ID_GAME = 'ID_GAME';
+export const BOT_GAME = 'BOT_GAME';
+export const CONNECT_BOT = 'CONNECT_BOT';
+export const CREATOR_LOGIN = 'CREATOR_LOGIN';

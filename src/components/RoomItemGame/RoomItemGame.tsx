@@ -2,18 +2,26 @@ import React from 'react';
 import { RoomStyle } from './styled';
 import Button from '../UI/Button';
 
-const RoomItemGame = ({ creatorLogin, userName, gameType }) => {
+const RoomItemGame = ({ creatorLogin, userName, gameType, id, setIdGame, connectBot, creatorGame }) => {
 
-    const roomOwner: string = creatorLogin === userName ? 'your_room' : creatorLogin;
+    const roomOwner: string = creatorLogin === userName ? 'Ваша комната' : creatorLogin;
     const onClickDistributor = (creatorLogin: string, userLogin: string) => {
         return creatorLogin === userLogin
             ? {
-                content: 'play_with_bot',
-                onClickFunc: e => playWithBot(e.target.id),
+                content: 'Играть с ботом',
+                onClickFunc: (e: React.ChangeEvent<HTMLInputElement>) => {
+                    setIdGame(id);
+                    connectBot()
+                },
             }
             : {
                 content: 'join',
-                onClickFunc: e => joinRoom(e.target.id),
+                onClickFunc:(e: React.ChangeEvent<HTMLInputElement>) => {
+                    console.log('JOIN')
+                    setIdGame(id)
+                    creatorGame(userName)
+                    connectBot()
+                },
             };
     };
 

@@ -5,7 +5,7 @@ import { Dispatch } from 'redux';
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     setStep: (payload: string) => dispatch(setStep(payload)),
-    setTime: (payload: string) => dispatch(setTime(payload))
+    setTime: (payload: string) => dispatch(setTime(payload)),
 })
 
 export default connect(null, mapDispatchToProps)(Square);

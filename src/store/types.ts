@@ -27,9 +27,12 @@ export type TRoomsState = {
     connectWS: boolean;
     step: string;
     time: string;
-    id: string,
+    id: string;
+    creatorLogin: string;
     gameType: string;
     createGame: boolean;
+    creatorGame: string;
+    botGame: {}
 }
 
 export type TActionRooms = {
