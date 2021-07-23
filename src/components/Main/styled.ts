@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import * as color from '../../utils/colors';
 
 export const Wrapper = styled.div `
-    width: 1000px;
-    margin: 0 auto;
+    width: 98%;
+    margin: 10px;
 
 `
 export const HeaderStyle = styled.div `
@@ -21,4 +21,8 @@ export const TitleStyled = styled.h2 `
 
 export const WrapperGame = styled.div `
     display: flex;
+    height: 80vh;
+    width: 100%;
+  margin: 10px;
+  
 `

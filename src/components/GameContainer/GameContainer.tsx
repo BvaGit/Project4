@@ -7,7 +7,7 @@ const GameContainer = () => {
     return (
         <ContainerGame>
             <Checkers />
-            <TicTacToe />
+            {/*<TicTacToe />*/}
         </ContainerGame>
     )
 }
