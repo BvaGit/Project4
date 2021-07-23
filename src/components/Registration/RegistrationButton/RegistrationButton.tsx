@@ -1,12 +1,14 @@
 import React from 'react';
 
 import Button from '../../UI/Button'
+import { useTranslation } from 'react-i18next';
 
 const RegistrationButton = ({register} : any) => {
+    const { t } = useTranslation()
     return(
         <Button 
             type="button"
-            textId="SIGN UP"
+            textId={t("link_signUp")}
             onClick={register}
         />
     )

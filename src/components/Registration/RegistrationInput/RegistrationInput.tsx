@@ -37,12 +37,12 @@ const RegistrationInput = ({ type, value, title, id, label, placeholder, changeF
     return(
         <BlockInput>
             <Input 
-                labelId={label} 
+                label={label}
                 type={type} 
                 name={id}
                 value={value}
-                titleId={title}
-                placeholderId={placeholder} 
+                title={title}
+                placeholder={placeholder}
                 minLength="1"
                 maxLength="30"
                 onBlur={handleBlur}

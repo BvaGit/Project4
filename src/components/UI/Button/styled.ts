@@ -46,6 +46,9 @@ export const ButtonStyle = styled.button<{bgColorBtn: boolean, colorBtn: boolean
     background-color: ${props => (props.bgColorBtn ? "#1D3246" : "#fff")};
     color: ${props => (props.colorBtn ? "#fff" : "#1D3246")};
     transition: all .3s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-family: system-ui;
+    font-size: 0.8em;
 
     &:hover {
         background-color: #bfb4ff;
