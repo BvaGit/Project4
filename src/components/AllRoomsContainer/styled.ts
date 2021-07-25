@@ -7,7 +7,7 @@ export const RoomsContainer = styled.div `
     width: 30%;
     border-right: 1px solid #fff;
     max-height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     font-family: "Roboto Light";
     color: white;
   ::-webkit-scrollbar { width: 3px; height: 3px;}

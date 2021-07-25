@@ -21,5 +21,11 @@
   "reg_label_pass": "Password",
   "title_auth": "min 1 max 25, no spaces, no empties",
   "title_rooms": "Game Rooms",
-  "name_room": ""
+  "name_room": "",
+  "name_user": "User",
+  "game": "Game",
+  "create_game": "Create game",
+  "play_with_bot": "Play with bot",
+  "join":"Join",
+  "your_room": "Your room"
 }
