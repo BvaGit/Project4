@@ -27,5 +27,10 @@
   "create_game": "Create game",
   "play_with_bot": "Play with bot",
   "join":"Join",
-  "your_room": "Your room"
+  "your_room": "Your room",
+  "create_game_modal": "Create game",
+  "checkers_modal": "Checkers",
+  "tic-tac-toe_modal": "Tic-tac-toe",
+  "confirm_modal": "Confirm",
+  "cancel_modal": "Cancel"
 }

@@ -24,7 +24,9 @@ const RoomItemGame = ({ creatorLogin, userName, gameType }) => {
     return (
         <RoomStyle>
             <p>{t('name_user')}: {roomOwner} </p>
+            <br/>
             <p>{t('game')}: {gameType} </p>
+            <br/>
             <Button 
                 type="button"
                 textId={content}

@@ -21,10 +21,15 @@
   "reg_label_pass": "Пароль",
   "title_auth": "Минимум 1, максимум 25 символов, без пробелов и пустых строчек",
   "title_rooms": "Игровые комнаты",
-  "name_user": "Имя",
+  "name_user": "Логин",
   "game": "Игра",
   "create_game": "Создать игру",
   "play_with_bot": "Играть с ботом",
   "join":"Присоединиться",
-  "your_room": "Ваша комната"
+  "your_room": "Ваша комната",
+  "create_game_modal": "Cоздание игры",
+  "checkers_modal": "Шашки",
+  "tic-tac-toe_modal": "Крестики-нолики",
+  "confirm_modal": "Подтвердить",
+  "cancel_modal": "Отмена"
 }
