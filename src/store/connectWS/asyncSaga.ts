@@ -1,13 +1,14 @@
 import { routesWs } from 'src/constants/routes';
 import { put, takeEvery, select, call, take } from 'redux-saga/effects';
 import { Stomp, CompatClient } from '@stomp/stompjs';
-import { CONNECT_WS, CREATE_GAME } from './actionTypes';
+import { CONNECT_WS, CREATE_GAME, SUBSCRIBE_ROOM, JOIN_ROOM, GET_STEP_ORDER, DO_TIC_STEP } from './actionTypes';
 import { getRooms } from './actions';
 import { getUserName } from '../user/selectors';
-import { typeGame } from '../connectWS/selectors';
+import { typeGame, getIdGame, getGameTypeRoom, getStepTic, getRoomsSub} from '../connectWS/selectors';
 import cookie from 'js-cookie';
 import { v4 as uuidv4 } from 'uuid';
 import { eventChannel, SagaIterator } from 'redux-saga';
+import { onmessage } from '../../helpers/onmessage';
 
 let stompClient: CompatClient | null = null;
 let token = cookie.get('token');
@@ -35,25 +36,74 @@ function* connectWsWorker(): SagaIterator {
     const stompChannel = yield call(createStompChannel, stompClient);
     yield call(init, stompClient);
     while (stompChannel) {
-        const payload = yield take(stompChannel);
-        yield put(payload);
+        const action = yield take(stompChannel);
+        yield call(workerSubscribeRoom);
+        yield put(action);
     }
 }
 
 export function* createRoomWorker(): SagaIterator {
     const creatorLogin = yield select(getUserName); 
     const gameType = yield select(typeGame);
+    const uuid = uuidv4();
     const body = {
         creatorLogin,
         gameType,
-        id: uuidv4(),
+        id: uuid,
     };
     console.log(body)
     yield call([stompClient, stompClient.send], routesWs.createRoom, { Authorization: token }, JSON.stringify(body));
     yield call([stompClient, stompClient.send], routesWs.updateRoom, { Authorization: token });
 }
 
+export function* workerSubscribeRoom(): SagaIterator {
+    let idGetGame;
+    const getRooms = yield select(getRoomsSub);
+    const userLogin = yield select(getUserName);
+    const actualRoom = getRooms.find(el => el.creatorLogin === userLogin);
+    if(actualRoom){
+        idGetGame = actualRoom.id
+    } else {
+        idGetGame = yield select(getIdGame);
+    }
+
+    yield call([stompClient, stompClient.subscribe], `/topic/game/${idGetGame}`, onmessage);
+}
+
+export function* workerJoinRoom(): SagaIterator { 
+    const idGetGame = yield select(getIdGame);
+    const userLogin = yield select(getUserName); 
+    const body = { guestLogin: userLogin, id: idGetGame };
+    console.log("JoinRoom", body)
+    yield call([stompClient, stompClient.send], routesWs.joinRoom, {}, JSON.stringify(body));
+}
+
+export function* workerGetStepOrder(): SagaIterator  {
+    let idGetGame = yield select(getIdGame);
+    let getGameType = yield select(getGameTypeRoom);
+    yield call([stompClient, stompClient.send], '/radioactive/get-step-order',
+        { uuid: idGetGame }, JSON.stringify({ gameType: getGameType }));
+}
+
+export function* workerTicStep(): SagaIterator {
+    const id = yield select(getIdGame);
+    const gameType = yield select(getGameTypeRoom);
+    const userLogin = yield select(getUserName);
+    const step = yield select(getStepTic)
+    const body = {
+        gameType,
+        stepDto: {login: userLogin, step: step, time: Date.now(), id}
+    }
+    console.log(body)
+    yield call([stompClient, stompClient.send], '/radioactive/do-step', { uuid: id }, JSON.stringify(body));
+    yield call(workerGetStepOrder);
+}
+
 export function* connectWsWatcher() {
     yield takeEvery(CONNECT_WS, connectWsWorker);
     yield takeEvery(CREATE_GAME, createRoomWorker);
+    yield takeEvery(SUBSCRIBE_ROOM, workerSubscribeRoom);
+    yield takeEvery(JOIN_ROOM, workerJoinRoom);
+    yield takeEvery(GET_STEP_ORDER, workerGetStepOrder);
+    yield takeEvery(DO_TIC_STEP, workerTicStep);
 }

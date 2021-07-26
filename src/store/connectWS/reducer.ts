@@ -5,7 +5,14 @@ const initialState: Types.TRoomsState = {
     rooms: [{creatorLogin: "ufora", gameType: "Checkers", id:"a1b56ce2-bce1-44eb-b6c1-eee5ff112f2c"}],
     connectWS: false,
     createGame: false,
-    gameType: 'Checkers'
+    gameType: 'Checkers',
+    gameTypeRoom: '',
+    idGame: '',
+    step: '',
+    stepOrder: '',
+    stepG: '',
+    login: '',
+    field: [null, null, null, null, null, null, null, null, null]
 }
 
 export const connectWsReducer = (state = initialState, action: Types.TActionRooms): Types.TRoomsState  => {
@@ -29,6 +36,36 @@ export const connectWsReducer = (state = initialState, action: Types.TActionRoom
             return {
                 ...state,
                 createGame: true
+            }
+        case AT.ID_GAME:
+            return {
+                ...state,
+                idGame: action.payload
+            }
+        case AT.SET_GAME_TYPE_ROOM: 
+            return {
+                ...state,
+                gameTypeRoom: action.payload
+            }
+        case AT.SET_STEP:
+            return {
+                ...state,
+                step: action.payload
+            }
+        case AT.STEP_G: 
+            return {
+                ...state,
+                stepG: action.payload
+            }
+        case AT.LOGIN: 
+            return {
+                ...state,
+                login: action.payload
+            }
+        case AT.FIELD: 
+            return {
+                ...state,
+                field: action.payload
             }
         default: {
             return state
