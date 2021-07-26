@@ -19,5 +19,18 @@
   "reg_link": "Sign In",
   "reg_label_confirm": "Confirm password",
   "reg_label_pass": "Password",
-  "title_auth": "min 1 max 25, no spaces, no empties"
+  "title_auth": "min 1 max 25, no spaces, no empties",
+  "title_rooms": "Game Rooms",
+  "name_room": "",
+  "name_user": "User",
+  "game": "Game",
+  "create_game": "Create game",
+  "play_with_bot": "Play with bot",
+  "join":"Join",
+  "your_room": "Your room",
+  "create_game_modal": "Create game",
+  "checkers_modal": "Checkers",
+  "tic-tac-toe_modal": "Tic-tac-toe",
+  "confirm_modal": "Confirm",
+  "cancel_modal": "Cancel"
 }

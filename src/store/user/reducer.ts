@@ -2,7 +2,8 @@ import * as AT from "./actionTypes";
 
 const initialState = {
   userName: '',
-  isUserName: false
+  isUserName: false,
+  gameTypeContainer: 'Checkers'
 };
 
 export const userReducer = (state = initialState, action: any) => {
@@ -18,6 +19,11 @@ export const userReducer = (state = initialState, action: any) => {
       ...state,
       isUserName: true
     }
+    case AT.GAME_TYPE_CONTAINER:
+      return {
+        ...state,
+        gameTypeContainer: action.payload
+      }
     default:
       return state;
   }

@@ -1,5 +1,17 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import * as color from '../../utils/colors';
+
+export const changeTheme = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+0%{
+    opacity: 0;
+}
+`
 
 export const ModalStyle = styled.div `
     display: flex;
@@ -16,6 +28,7 @@ export const ModalStyle = styled.div `
     top: 120px;
     left: 50%;
     transform: translateX(-50%);
+    animation: ${changeTheme} 1.5s ease;
 `
 
 export const ModalTitleStyle = styled.p `
