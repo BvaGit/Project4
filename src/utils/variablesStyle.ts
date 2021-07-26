@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle `
         outline: none;
     }
     body {
-        background: ${color.bgGradient};
         font-family: Arial, Helvetica, sans-serif;
         position: relative;
     }
