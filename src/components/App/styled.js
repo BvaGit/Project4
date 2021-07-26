@@ -11,7 +11,7 @@ export const changeTheme = keyframes`
 
 
 export const StAppDiv = styled.div`
-  min-height: 90vh;
+  min-height: 100vh;
   background-image: linear-gradient(320deg, ${({colors,theme})=>colors[theme].linearGradientOne} 0%,
   ${({colors,theme})=>colors[theme].linearGradientTwo} 74%);
   background-size: cover;

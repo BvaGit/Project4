@@ -1,10 +1,13 @@
 import React from 'react';
 import { RoomStyle } from './styled';
 import Button from '../UI/Button';
+import { useTranslation } from 'react-i18next';
 
 const RoomItemGame = ({ creatorLogin, userName, gameType, setIdGAme, id, subscribeRoom, joinRoom, setGameTypeRoom, getStepOrder }) => {
 
-    const roomOwner: string = creatorLogin === userName ? 'your_room' : creatorLogin;
+    const { t } = useTranslation()
+
+    const roomOwner: string = creatorLogin === userName ? t('your_room') : creatorLogin;
     const onClickDistributor = (creatorLogin: string, userLogin: string) => {
         return creatorLogin === userLogin
             ? {
@@ -31,8 +34,10 @@ const RoomItemGame = ({ creatorLogin, userName, gameType, setIdGAme, id, subscri
 
     return (
         <RoomStyle>
-            <p>Имя: {roomOwner} </p>
-            <p>Игра: {gameType} </p>
+            <p>{t('name_user')}: {roomOwner} </p>
+            <br/>
+            <p>{t('game')}: {gameType} </p>
+            <br/>
             <Button 
                 type="button"
                 textId={content}

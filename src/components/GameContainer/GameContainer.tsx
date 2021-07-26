@@ -3,7 +3,7 @@ import { ContainerGame } from './styled';
 import TicTacToe from '../TicTacToe';
 import Checkers from 'src/components/Checkers';
 
-const GameContainer = () => {
+const GameContainer = ({ getGameTypeContainer }: any) => {
     return (
         <ContainerGame>
             {/* <Checkers /> */}

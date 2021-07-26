@@ -6,3 +6,8 @@ export const getUserName = createSelector(
     UserStore,
     (user) => user.userName
 )
+
+export const getGameTypeContainer = createSelector(
+    UserStore,
+    (user) => user.gameTypeContainer
+)
