@@ -4,5 +4,6 @@ export const ContainerGame = styled.div `
     width: 70%;
     display: flex;
     justify-content: center;
-  margin: 10px
+    margin: 10px;
+    font-family: 'Play', sans-serif;
 `

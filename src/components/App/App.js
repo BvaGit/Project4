@@ -8,6 +8,7 @@ import { GlobalStyle } from '../../utils/variablesStyle';
 import { useTranslation } from 'react-i18next';
 import { StAppDiv } from './styled';
 import { useTheme } from '../Hook/useTheme';
+import Statistic from '../Statistic'
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
                 <Route exact path='/' component={Auth} />
                 <Route path='/main' component={Main}/>
                 <Route path='/registration' component={Registration}/>
+                <Route path='/statistic' component={Statistic}/>
             </Switch>
         </StAppDiv>
     )
