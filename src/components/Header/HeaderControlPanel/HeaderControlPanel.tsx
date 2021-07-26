@@ -9,7 +9,6 @@ import { useTheme } from 'src/components/Hook/useTheme';
 import { ROUTS_WITHOUT_STATISTICS } from '../../../constants/ui';
 import { routStat } from '/src/constants/routes';
 
-
 const HeaderControlPanel = () => {
         const { i18n } = useTranslation();
         const { changeTheme } = useTheme();

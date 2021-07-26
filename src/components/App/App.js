@@ -10,7 +10,6 @@ import { StAppDiv } from './styled';
 import { useTheme } from '../Hook/useTheme';
 import Statistic from '../Statistic'
 
-
 const App = () => {
     const { i18n } = useTranslation();
     const { colors, theme } = useTheme();

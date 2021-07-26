@@ -1,7 +1,6 @@
 import React from 'react';
 import { StHeaderWrapper, StWrapper } from './styled';
 
-
 interface IProps {
     creatorLogin: string,
     gameType: string,
