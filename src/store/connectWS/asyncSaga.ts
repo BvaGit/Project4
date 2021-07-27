@@ -1,7 +1,7 @@
 import { routesWs } from 'src/constants/routes';
 import { put, takeEvery, select, call, take } from 'redux-saga/effects';
 import { Stomp, CompatClient } from '@stomp/stompjs';
-import { CONNECT_WS, CREATE_GAME, SUBSCRIBE_ROOM, JOIN_ROOM, GET_STEP_ORDER, DO_TIC_STEP } from './actionTypes';
+import { CONNECT_WS, CREATE_GAME, SUBSCRIBE_ROOM, JOIN_ROOM, GET_STEP_ORDER, DO_TIC_STEP, JOIN_ROOM_BOT } from './actionTypes';
 import { getRooms } from './actions';
 import { getUserName } from '../user/selectors';
 import { typeGame, getIdGame, getGameTypeRoom, getStepTic, getRoomsSub} from '../connectWS/selectors';
@@ -99,6 +99,16 @@ export function* workerTicStep(): SagaIterator {
     yield call(workerGetStepOrder);
 }
 
+//--------------------------------------
+
+export function* workerJoinRoomBot(): SagaIterator { 
+    const idGetGame = yield select(getIdGame);
+    const userLogin = "Bot"; 
+    const body = { guestLogin: userLogin, id: idGetGame };
+    console.log("JoinRoom", body)
+    yield call([stompClient, stompClient.send], routesWs.joinRoom, {}, JSON.stringify(body));
+}
+
 export function* connectWsWatcher() {
     yield takeEvery(CONNECT_WS, connectWsWorker);
     yield takeEvery(CREATE_GAME, createRoomWorker);
@@ -106,4 +116,8 @@ export function* connectWsWatcher() {
     yield takeEvery(JOIN_ROOM, workerJoinRoom);
     yield takeEvery(GET_STEP_ORDER, workerGetStepOrder);
     yield takeEvery(DO_TIC_STEP, workerTicStep);
+    yield takeEvery(JOIN_ROOM_BOT, workerJoinRoomBot);
 }
+
+
+

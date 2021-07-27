@@ -13,3 +13,4 @@ export const STEP_ORDER = 'STEP_ORDER';
 export const STEP_G = 'STEP_G';
 export const LOGIN = 'LOGIN';
 export const FIELD = 'FIELD';
+export const JOIN_ROOM_BOT = 'JOIN_ROOM_BOT';

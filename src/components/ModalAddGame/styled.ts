@@ -62,4 +62,8 @@ export const BtnStyle = styled.div `
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+
+    &:hover {
+      
+    }
 `

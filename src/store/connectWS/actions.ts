@@ -16,3 +16,4 @@ export const stepOrder = (payload: string) => ({type:AT.STEP_ORDER, payload});
 export const stepG = (payload: string) => ({type: AT.STEP_G, payload});
 export const setLogin = (payload: string) => ({type: AT.LOGIN, payload});
 export const setField = (payload: any) => ({type: AT.FIELD, payload});
+export const joinRoomBot = () => ({type: AT.JOIN_ROOM_BOT});

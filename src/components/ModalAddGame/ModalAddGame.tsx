@@ -10,6 +10,7 @@ const ModalAddGame = ({ handleCloseModal, gameType, createGame }: any) => {
     }
     const handleClick = () => {
         createGame();
+        handleCloseModal();
     }
     const { t } = useTranslation()
 
