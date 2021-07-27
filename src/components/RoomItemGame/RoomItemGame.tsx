@@ -3,7 +3,7 @@ import { RoomStyle } from './styled';
 import Button from '../UI/Button';
 import { useTranslation } from 'react-i18next';
 
-const RoomItemGame = ({ creatorLogin, userName, gameType, setIdGAme, id, subscribeRoom, joinRoom, setGameTypeRoom, getStepOrder, joinRoomBot }) => {
+const RoomItemGame = ({ creatorLogin, userName, gameType, setIdGAme, id, subscribeRoom, joinRoom, setGameTypeRoom, getStepOrder, joinRoomBot, gameBot, subscribeRoomBot }) => {
 
     const { t } = useTranslation()
 
@@ -15,8 +15,10 @@ const RoomItemGame = ({ creatorLogin, userName, gameType, setIdGAme, id, subscri
                 id: setIdGAme(id),
                // subRoom: subscribeRoom(),
                 onClickFunc: (e) => {
-                    joinRoomBot();
-                    setGameTypeRoom(gameType),
+                    gameBot();
+                    subscribeRoomBot();
+                    //joinRoomBot();
+                    getStepOrder()
                 }
             }
             : {

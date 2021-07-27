@@ -17,3 +17,5 @@ export const stepG = (payload: string) => ({type: AT.STEP_G, payload});
 export const setLogin = (payload: string) => ({type: AT.LOGIN, payload});
 export const setField = (payload: any) => ({type: AT.FIELD, payload});
 export const joinRoomBot = () => ({type: AT.JOIN_ROOM_BOT});
+export const gameBot = () => ({type: AT.GAME_WITH_BOT});
+export const subscribeRoomBot = () => ({type: AT.SUBSCRIBE_ROOM_BOT})

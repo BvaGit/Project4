@@ -14,3 +14,5 @@ export const STEP_G = 'STEP_G';
 export const LOGIN = 'LOGIN';
 export const FIELD = 'FIELD';
 export const JOIN_ROOM_BOT = 'JOIN_ROOM_BOT';
+export const GAME_WITH_BOT = 'GAME_WITH_BOT';
+export const SUBSCRIBE_ROOM_BOT = 'SUBSCRIBE_ROOM_BOT';

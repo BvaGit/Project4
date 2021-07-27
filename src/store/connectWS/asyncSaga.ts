@@ -1,7 +1,7 @@
 import { routesWs } from 'src/constants/routes';
 import { put, takeEvery, select, call, take } from 'redux-saga/effects';
 import { Stomp, CompatClient } from '@stomp/stompjs';
-import { CONNECT_WS, CREATE_GAME, SUBSCRIBE_ROOM, JOIN_ROOM, GET_STEP_ORDER, DO_TIC_STEP, JOIN_ROOM_BOT } from './actionTypes';
+import { CONNECT_WS, CREATE_GAME, SUBSCRIBE_ROOM, JOIN_ROOM, GET_STEP_ORDER, DO_TIC_STEP, JOIN_ROOM_BOT, SUBSCRIBE_ROOM_BOT } from './actionTypes';
 import { getRooms } from './actions';
 import { getUserName } from '../user/selectors';
 import { typeGame, getIdGame, getGameTypeRoom, getStepTic, getRoomsSub} from '../connectWS/selectors';
@@ -37,7 +37,7 @@ function* connectWsWorker(): SagaIterator {
     yield call(init, stompClient);
     while (stompChannel) {
         const action = yield take(stompChannel);
-        yield call(workerSubscribeRoom);
+       yield call(workerSubscribeRoom);
         yield put(action);
     }
 }
@@ -101,6 +101,27 @@ export function* workerTicStep(): SagaIterator {
 
 //--------------------------------------
 
+export function* workerSubscribeRoomBot(): SagaIterator {
+    let idGetGame;
+    const getRooms = yield select(getRoomsSub);
+    const userLogin = yield select(getUserName);
+    const actualRoom = getRooms.find(el => el.creatorLogin === userLogin);
+    if(actualRoom){
+        idGetGame = actualRoom.id
+    } else {
+        idGetGame = yield select(getIdGame);
+    }
+    yield call([stompClient, stompClient.subscribe], `/topic/game/${idGetGame}`, onmessage);
+    yield call([stompClient, stompClient.subscribe], `/topic/bot/${idGetGame}`, message => console.log(message.body));
+}
+
+export function* workerGetBotStep(): SagaIterator {
+    const id = yield select(getIdGame);
+    const gameType = yield select(getGameTypeRoom);
+    const body = { id, gameType };
+    yield call([stompClient, stompClient.send], '/get-bot-step', { uuid: id }, JSON.stringify(body));
+}
+
 export function* workerJoinRoomBot(): SagaIterator { 
     const idGetGame = yield select(getIdGame);
     const userLogin = "Bot"; 
@@ -117,6 +138,7 @@ export function* connectWsWatcher() {
     yield takeEvery(GET_STEP_ORDER, workerGetStepOrder);
     yield takeEvery(DO_TIC_STEP, workerTicStep);
     yield takeEvery(JOIN_ROOM_BOT, workerJoinRoomBot);
+    yield takeEvery(SUBSCRIBE_ROOM_BOT, workerSubscribeRoomBot);
 }
 
 

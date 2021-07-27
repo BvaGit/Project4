@@ -41,3 +41,8 @@ export const getField = createSelector(
     connectWsStore,
     (connectWs) => connectWs.field
 )
+
+export const bot = createSelector(
+    connectWsStore,
+    (connectWs) => connectWs.bot
+)
