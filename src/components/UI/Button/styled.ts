@@ -13,7 +13,7 @@ export const StButton = styled.button <IBtn>`
   ${({ margin = '0 0 3px 0' }) => margin && `margin: ${margin}`};
   font-family: 'Play', sans-serif;
   padding: ${({ padding = '5px' }) => padding};
-  width: ${({ width = '170px' }) => width};
+  width: 80px;
   height: ${({ height = '35px' }) => height};
   ${({ cursor = 'pointer' }) => cursor && `cursor: ${cursor}`};
   color: ${({ color = colorDefault }) => color};

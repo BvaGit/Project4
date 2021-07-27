@@ -24,6 +24,7 @@ export const fetchGet = async (url: string): Promise<Response> => {
 export const fetchPostRequest = async (url: string, body: any): Promise<Response> => {
     try {
         const token = cookie.get("token");
+        console.log(token)
         const answer = await fetch(`${routes.baseUrl}${url}`, {
             method: 'POST',
             headers: {

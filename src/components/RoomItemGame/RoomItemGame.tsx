@@ -3,19 +3,30 @@ import { RoomStyle } from './styled';
 import Button from '../UI/Button';
 import { useTranslation } from 'react-i18next';
 
-const RoomItemGame = ({ creatorLogin, userName, gameType }) => {
+const RoomItemGame = ({ creatorLogin, userName, gameType, setIdGAme, id, subscribeRoom, joinRoom, setGameTypeRoom, getStepOrder }) => {
+
     const { t } = useTranslation()
 
     const roomOwner: string = creatorLogin === userName ? t('your_room') : creatorLogin;
     const onClickDistributor = (creatorLogin: string, userLogin: string) => {
         return creatorLogin === userLogin
             ? {
-                content: t('play_with_bot'),
+                content: 'play_with_bot',
+                id: setIdGAme(id),
+               // subRoom: subscribeRoom(),
+                setGTR: setGameTypeRoom(gameType),
                 onClickFunc: e => playWithBot(e.target.id),
             }
             : {
-                content: t('join'),
-                onClickFunc: e => joinRoom(e.target.id),
+                content: 'join',
+                onClickFunc: (e) => {
+                   localStorage.setItem('idGame', id);
+                   setIdGAme(id)
+                   subscribeRoom()
+                   joinRoom()
+                   setGameTypeRoom(gameType)
+                   getStepOrder()
+                } 
             };
     };
 

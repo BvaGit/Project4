@@ -4,18 +4,15 @@ import { IS_STATISTIC } from './actionTypes';
 import cookie from 'js-cookie';
 import { routes } from '../../constants/routes';
 import { fetchPostRequest } from '../../helpers/request';
+import { getStatistic } from './actions'
 
 function* StatisticWorker(): SagaIterator {
     try {
-        const userName = cookie.get("userName");
-
-        const data = {
-           'username': userName
-        }
-        
+        const username = cookie.get("userName");
+        const data = { username }
         const answer = yield call(fetchPostRequest, routes.statistic, data);
-        console.log(answer)
-        // yield put(getStatistic(answer));
+        const statisticData = yield call([answer, "json"])
+        yield put(getStatistic(statisticData))
     } catch (e) {
         console.log(e)
     }
