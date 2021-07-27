@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../../UI/Input';
 import { validateRegField } from '/src/helpers/validation'
 import { BlockInput, NoValidStyle } from './styled';
@@ -18,11 +18,11 @@ type inputProps = {
     changeField: any,
     setError: any,
     error: any
+    clear: () => void,
 } 
 
-const AuthInput = ({ type, value, title, id, label, placeholder, changeField, setError, error }: inputProps) => {
+const AuthInput = ({ type, value, title, id, label, placeholder, changeField, setError, error, clear }: inputProps) => {
     const [blured, setBlured] = useState(false);
-    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         changeField({ [id]: e.target.value });
         if(blured) setBlured(false);

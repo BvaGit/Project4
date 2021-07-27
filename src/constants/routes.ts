@@ -19,10 +19,9 @@ export const routesWs = {
     createRoom: '/radioactive/create-room',
     joinRoom: '/radioactive/join-room',
     getStepOrder: '/radioactive/get-step-order',
-
-    createRoom: '/radioactive/create-room'
+    
 }
 export const routStat = {
-    statistic: '/statistic'
-
+    statistic: '/statistic',
+    auth: '/'
 }

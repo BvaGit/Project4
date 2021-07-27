@@ -13,5 +13,5 @@ export const StLogo = styled.div`
       img {
         height: 8vh;
       }
-  //cursor: pointer;
+  cursor: pointer;
 `

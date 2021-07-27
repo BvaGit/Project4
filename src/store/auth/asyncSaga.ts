@@ -7,6 +7,7 @@ import { getAuthFieldsStore } from './selectors';
 import { setUserName } from '../user/actions';
 import { routes } from '../../constants/routes';
 import { fetchRegisterAuth } from '../../helpers/request';
+import { clearFields } from './actions'
 
 function* AuthWorker(): SagaIterator {
     try {
@@ -17,6 +18,7 @@ function* AuthWorker(): SagaIterator {
         }
         const answer = yield call(fetchRegisterAuth, routes.account.auth, body);
         if(answer.status === 200){
+            yield (put(clearFields()));
             const token = yield answer.text();
             cookie.set("token", token);
             cookie.set("userName", data.login);
