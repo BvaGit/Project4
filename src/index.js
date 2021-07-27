@@ -7,9 +7,9 @@ import { BrowserRouter } from 'react-router-dom';
 import {ConnectedRouter} from 'connected-react-router';
 import { createStore, applyMiddleware, compose } from 'redux';
 
-import rootReducer from '../src/store/rootReducers';
+import rootReducer from './store/rootReducers';
 import App from './components/App';
-import history from '../src/helpers/history'
+import history from './helpers/history'
 import { sagaRoot } from './store/sagaRoot';
 const sagaMiddleware = createSagaMiddleware();
 
@@ -18,7 +18,7 @@ if (window.__REDUX_DEVTOOLS_EXTENSION__) {
   devTools = window.__REDUX_DEVTOOLS_EXTENSION__();
 }
 
-const store = createStore(
+export const store = createStore(
   rootReducer(history),
   {},
   compose(applyMiddleware(sagaMiddleware), devTools)

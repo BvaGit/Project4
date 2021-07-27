@@ -26,6 +26,13 @@ export type TRoomsState = {
     connectWS: boolean;
     gameType: string;
     createGame: boolean;
+    gameTypeRoom: string;
+    idGame: string;
+    step: string;
+    stepOrder: string;
+    stepG: string;
+    login: string;
+    field: any;
 }
 
 export type TActionRooms = {

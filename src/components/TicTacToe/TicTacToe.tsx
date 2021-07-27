@@ -3,9 +3,9 @@ import { Board } from './styled';
 import Square from './Square';
 
 const TicTacToe = () => {
-    const [squares, setSquares]:any = useState(Array(9).fill(null))
+    const [squares, setSquares]:any = useState([1,1,1,1,1,1,1,1,1])
     const [xO , setXo]: any = useState(true);
-    
+       
     return (
         <Board>
             {squares.map( (square, i) => <Square 

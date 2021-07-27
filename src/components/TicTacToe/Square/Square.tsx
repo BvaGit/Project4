@@ -1,20 +1,19 @@
 import React from 'react';
 import { SquareStyled } from './styled';
 
-const Square = ({ id, square, squares, setSquares, xO, setXo }: any) => {
-    
+const Square = ({ id, square, setStep, doTicStep, getStepG, setSquares, getField }: any) => {
+    setSquares( prevState => {
+        const newState = [...prevState]
+        getField.forEach((element, i) => {
+            newState[i] = element
+        });
+        return newState
+    })
     const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const id = e.target.id;
-        setSquares( prevState => {
-            const newState = [...prevState]
-            if(newState[id] === null) {
-                newState[id] = xO ? "X" : "0";
-                setXo( prev => !prev)
-            }
-            return newState
-          })
-    }
+        setStep(e.target.id)
+        doTicStep()
 
+    }
     return (
         <SquareStyled id={id} onClick={handleClick}>
             {square}
