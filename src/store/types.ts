@@ -35,6 +35,7 @@ export type TRoomsState = {
     field: any;
     bot: boolean;
     stepBot: string;
+    winner: string;
 }
 
 export type TActionRooms = {

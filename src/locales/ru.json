@@ -37,5 +37,8 @@
   "checkers_modal": "Шашки",
   "tic-tac-toe_modal": "Крестики-нолики",
   "confirm_modal": "Подтвердить",
-  "cancel_modal": "Отмена"
+  "cancel_modal": "Отмена",
+  "stepOrder": "Очередь:",
+  "welcome": "Добро пожаловать!",
+  "Winner": "Победительr"
 }
