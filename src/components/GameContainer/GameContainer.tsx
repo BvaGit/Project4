@@ -6,8 +6,8 @@ import Checkers from 'src/components/Checkers';
 const GameContainer = ({ getGameTypeContainer }: any) => {
     return (
         <ContainerGame>
-            {/* <Checkers /> */}
-            <TicTacToe />
+             <Checkers /> 
+            {/*<TicTacToe />*/}
         </ContainerGame>
     )
 }
