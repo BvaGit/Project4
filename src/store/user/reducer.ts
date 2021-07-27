@@ -3,7 +3,7 @@ import * as AT from "./actionTypes";
 const initialState = {
   userName: '',
   isUserName: false,
-  gameTypeContainer: 'Checkers'
+  gameTypeContainer: ''
 };
 
 export const userReducer = (state = initialState, action: any) => {

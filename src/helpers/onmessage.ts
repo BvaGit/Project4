@@ -1,6 +1,6 @@
 
 import { store } from '../index';
-import { stepG, setLogin, setField } from '../store/connectWS/actions';
+import { stepG, setLogin, setField, botStep, doBotStep } from '../store/connectWS/actions';
 
 export const onmessage = (message: any) => {
     const mes = message.body
@@ -14,5 +14,14 @@ export const onmessage = (message: any) => {
             store.dispatch(setLogin(parsedBody.stepDto.login));
             store.dispatch(stepG(parsedBody.stepDto.step));
         }
+        if(parsedBody.stepOrderLogin === 'Bot'){
+            console.log('stepOrderLogin-----')
+            store.dispatch(botStep());
+        }
     }
+}
+
+export const onmessageBot = (message: any) => {
+    console.log("onmessageBot",message.body)
+    store.dispatch(doBotStep(message.body));
 }

@@ -46,3 +46,9 @@ export const bot = createSelector(
     connectWsStore,
     (connectWs) => connectWs.bot
 )
+
+export const getGameTypeContainer = createSelector(
+    connectWsStore,
+    (connectWs) => connectWs.gameTypeContainer
+)
+

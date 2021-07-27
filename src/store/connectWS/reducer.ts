@@ -13,7 +13,8 @@ const initialState: Types.TRoomsState = {
     stepG: '',
     login: '',
     field: [null, null, null, null, null, null, null, null, null],
-    bot: false
+    bot: false,
+    stepBot: ''
 }
 
 export const connectWsReducer = (state = initialState, action: Types.TActionRooms): Types.TRoomsState  => {

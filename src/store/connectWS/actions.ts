@@ -19,3 +19,6 @@ export const setField = (payload: any) => ({type: AT.FIELD, payload});
 export const joinRoomBot = () => ({type: AT.JOIN_ROOM_BOT});
 export const gameBot = () => ({type: AT.GAME_WITH_BOT});
 export const subscribeRoomBot = () => ({type: AT.SUBSCRIBE_ROOM_BOT})
+export const botStep = () => ({type: AT.BOT_STEP});
+export const doBotStep = (payload: any) => ({type: AT.DO_BOT_STEP, payload});
+export const setGameContainer = (payload: string) => ({type: AT.SET_GAME_CONTAINER, payload});

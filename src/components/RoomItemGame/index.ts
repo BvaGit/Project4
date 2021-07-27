@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     gameTypeContainer: (payload: string) => dispatch(gameTypeContainer(payload)),
     joinRoomBot: () => dispatch(joinRoomBot()),
     gameBot: () => dispatch(gameBot()),
-    subscribeRoomBot: () => dispatch(subscribeRoomBot())
+    subscribeRoomBot: () => dispatch(subscribeRoomBot()),
 })
 
 export default connect(null, mapDispatchToProps)(RoomItemGame);

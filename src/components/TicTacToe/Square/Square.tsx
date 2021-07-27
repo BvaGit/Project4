@@ -16,6 +16,8 @@ const Square = ({ id, square, setStep, doTicStep, getStepG, setSquares, getField
     ?
     handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log("bot")
+        setStep(e.target.id)
+        doTicStep()
     }
     :
     handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -16,3 +16,7 @@ export const FIELD = 'FIELD';
 export const JOIN_ROOM_BOT = 'JOIN_ROOM_BOT';
 export const GAME_WITH_BOT = 'GAME_WITH_BOT';
 export const SUBSCRIBE_ROOM_BOT = 'SUBSCRIBE_ROOM_BOT';
+export const BOT_STEP = 'BOT_STEP';
+export const DO_BOT_STEP = 'DO_BOT_STEP';
+export const STEP_BOT = 'STEP_BOT';
+export const SET_GAME_CONTAINER = 'SET_GAME_CONTAINER';

@@ -34,6 +34,7 @@ export type TRoomsState = {
     login: string;
     field: any;
     bot: boolean;
+    stepBot: string;
 }
 
 export type TActionRooms = {
