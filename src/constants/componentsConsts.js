@@ -1,4 +1,10 @@
 export const HEADER_CONTROL_BTNS = [{
+    id: 'statistic',
+    content: 'statistics',
+    rout: '/statistic',
+    value: 'statistic'
+},
+{
     id: 'theme_btn',
     value: 'dark',
     content: '🌓',

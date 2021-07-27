@@ -17,3 +17,6 @@ export const routesWs = {
     updateRoom: '/radioactive/update-room',
     createRoom: '/radioactive/create-room'
 }
+export const routStat = {
+    statistic: '/statistic'
+}

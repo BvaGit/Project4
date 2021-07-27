@@ -10,7 +10,7 @@ export const BtnAddGameStyle = styled.div `
     transition: all .3s;
     position: absolute;
     right: 50px;
-    
+    font-family: 'Play', sans-serif;
     &:hover {
         background-color: ${color.btnHover};
     }
