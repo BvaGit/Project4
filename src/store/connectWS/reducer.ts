@@ -12,7 +12,9 @@ const initialState: Types.TRoomsState = {
     stepOrder: '',
     stepG: '',
     login: '',
-    field: [null, null, null, null, null, null, null, null, null]
+    field: [null, null, null, null, null, null, null, null, null],
+    bot: false,
+    stepBot: ''
 }
 
 export const connectWsReducer = (state = initialState, action: Types.TActionRooms): Types.TRoomsState  => {
@@ -66,6 +68,11 @@ export const connectWsReducer = (state = initialState, action: Types.TActionRoom
             return {
                 ...state,
                 field: action.payload
+            }
+        case AT.GAME_WITH_BOT:
+            return {
+                ...state,
+                bot: true
             }
         default: {
             return state

@@ -3,13 +3,15 @@ import Portal from '../Portal/';
 import { ModalStyle, ModalTitleStyle, SelectStyle, BtnsBlockStyle, BtnStyle } from './styled'
 import { useTranslation } from 'react-i18next';
 
-const ModalAddGame = ({ handleCloseModal, gameType, createGame }: any) => {
+const ModalAddGame = ({ handleCloseModal, gameType, createGame, typeGame, gameTypeContainer }: any) => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         gameType(e.target.value);
     }
     const handleClick = () => {
         createGame();
+        gameTypeContainer(typeGame);
+        handleCloseModal();
     }
     const { t } = useTranslation()
 
