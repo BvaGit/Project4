@@ -33,6 +33,8 @@ export type TRoomsState = {
     stepG: string;
     login: string;
     field: any;
+    bot: boolean;
+    stepBot: string;
 }
 
 export type TActionRooms = {

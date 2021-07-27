@@ -1,16 +1,18 @@
 import Square from './Square';
-import { setStep, doTicStep } from '../../../store/connectWS/actions';
+import { setStep, doTicStep, gameBot } from '../../../store/connectWS/actions';
 import { connect } from 'react-redux';
-import { getStepG, getField } from '../../../store/connectWS/selectors';
+import { getStepG, getField, bot } from '../../../store/connectWS/selectors';
+import { Dispatch } from 'redux';
 
-const maoStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
     getStepG: getStepG(state),
-    getField: getField(state)
+    getField: getField(state),
+    bot: bot(state)
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
     setStep: (payload) => dispatch(setStep(payload)),
-    doTicStep: () => dispatch(doTicStep())
+    doTicStep: () => dispatch(doTicStep()),
 })
 
-export default connect(maoStateToProps, mapDispatchToProps)(Square);
+export default connect(mapStateToProps, mapDispatchToProps)(Square);
