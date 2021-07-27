@@ -15,7 +15,14 @@ export const routesWs = {
         boot: '/topic/bot/',
     },
     updateRoom: '/radioactive/update-room',
+
     createRoom: '/radioactive/create-room',
     joinRoom: '/radioactive/join-room',
     getStepOrder: '/radioactive/get-step-order',
+
+    createRoom: '/radioactive/create-room'
+}
+export const routStat = {
+    statistic: '/statistic'
+
 }
