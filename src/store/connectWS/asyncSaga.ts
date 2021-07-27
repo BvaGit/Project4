@@ -1,7 +1,7 @@
 import { routesWs } from 'src/constants/routes';
 import { put, takeEvery, select, call, take } from 'redux-saga/effects';
 import { Stomp, CompatClient } from '@stomp/stompjs';
-import { CONNECT_WS, CREATE_GAME, SUBSCRIBE_ROOM, JOIN_ROOM, GET_STEP_ORDER, DO_TIC_STEP, JOIN_ROOM_BOT, SUBSCRIBE_ROOM_BOT, BOT_STEP, DO_BOT_STEP } from './actionTypes';
+import { CONNECT_WS, CREATE_GAME, SUBSCRIBE_ROOM, JOIN_ROOM, GET_STEP_ORDER, DO_TIC_STEP, JOIN_ROOM_BOT, SUBSCRIBE_ROOM_BOT, BOT_STEP, DO_BOT_STEP, DO_CHECKERS_STEP } from './actionTypes';
 import { getRooms } from './actions';
 import { getUserName } from '../user/selectors';
 import { typeGame, getIdGame, getGameTypeRoom, getStepTic, getRoomsSub} from '../connectWS/selectors';
@@ -143,6 +143,19 @@ export function* workerJoinRoomBot(): SagaIterator {
     console.log("JoinRoom", body)
     yield call([stompClient, stompClient.send], routesWs.joinRoom, {}, JSON.stringify(body));
 }
+export function* workerDoCheckerStep({ payload }): SagaIterator {
+    const id = yield select(getIdGame);
+    const gameType = yield select(getGameTypeRoom);
+    const userLogin = yield select(getUserName);
+    
+    const body = {
+        gameType,
+        stepDto: {login: userLogin, step: '21_30', time: Date.now(), id}
+    }
+    console.log(body)
+    yield call([stompClient, stompClient.send], '/radioactive/do-step', { uuid: id }, JSON.stringify(body));
+    yield call(workerGetStepOrder);
+}
 
 export function* connectWsWatcher() {
     yield takeEvery(CONNECT_WS, connectWsWorker);
@@ -155,6 +168,7 @@ export function* connectWsWatcher() {
     yield takeEvery(SUBSCRIBE_ROOM_BOT, workerSubscribeRoomBot);
     yield takeEvery(BOT_STEP, workerGetBotStep);
     yield takeEvery(DO_BOT_STEP,workerDoBotStep);
+    yield takeEvery(DO_CHECKERS_STEP, workerDoCheckerStep);
 }
 
 

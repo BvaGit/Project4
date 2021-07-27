@@ -8,6 +8,9 @@ export const onmessage = (message: any) => {
     if (message.body.charAt(0) === '{') {
         const parsedBody = JSON.parse(message.body);
         if(parsedBody.field){
+            if(parsedBody.field.gameField){
+                return store.dispatch(setField(parsedBody.field.gameField))
+            }
             store.dispatch(setField(parsedBody.field));
         }
         if(parsedBody.stepDto){

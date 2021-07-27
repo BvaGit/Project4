@@ -11,12 +11,13 @@ interface IProps {
     cell: ICell
 }
 
-const Cell: React.FC <IProps> = ({ col, row, cell }) => {
+const Cell: React.FC <IProps> = ({ col, row, cell, doCheckersStep }) => {
     const [, drop] = useDrop(
         () => ({
             accept: 'checker',
             drop: () => {
                 console.log(`drop ${row} ${col}`);
+                doCheckersStep(`${row}_${col}`)
             },
         }),
         [row, col],
@@ -24,7 +25,6 @@ const Cell: React.FC <IProps> = ({ col, row, cell }) => {
 
     const getCellBackground = (row: number, col: number) => {
         const cellBg = VIEW_OPTIONS.CELL_BACKGROUND;
-        console.log(cellBg)
         return row % 2 === 1
             ? (col % 2 === 1 ? cellBg.GRAY : cellBg.WHITE)
             : (col % 2 === 0 ? cellBg.GRAY : cellBg.WHITE);
