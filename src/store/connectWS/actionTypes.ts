@@ -20,3 +20,4 @@ export const BOT_STEP = 'BOT_STEP';
 export const DO_BOT_STEP = 'DO_BOT_STEP';
 export const STEP_BOT = 'STEP_BOT';
 export const SET_GAME_CONTAINER = 'SET_GAME_CONTAINER';
+export const WINNER = 'WINNER';

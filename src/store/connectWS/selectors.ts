@@ -52,3 +52,15 @@ export const getGameTypeContainer = createSelector(
     (connectWs) => connectWs.gameTypeContainer
 )
 
+export const getStepOrder = createSelector(
+    connectWsStore,
+    (connectWs) => connectWs.stepOrder
+)
+
+export const getWinner = createSelector(
+    connectWsStore,
+    (connectWs) => connectWs.winner
+)
+
+
+

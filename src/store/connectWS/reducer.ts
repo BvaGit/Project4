@@ -14,7 +14,8 @@ const initialState: Types.TRoomsState = {
     login: '',
     field: [null, null, null, null, null, null, null, null, null],
     bot: false,
-    stepBot: ''
+    stepBot: '',
+    winner: ''
 }
 
 export const connectWsReducer = (state = initialState, action: Types.TActionRooms): Types.TRoomsState  => {
@@ -73,6 +74,16 @@ export const connectWsReducer = (state = initialState, action: Types.TActionRoom
             return {
                 ...state,
                 bot: true
+            }
+        case AT.STEP_ORDER:
+            return {
+                ...state,
+                stepOrder: action.payload
+            }
+        case AT.WINNER:
+            return {
+                ...state,
+                winner: action.payload
             }
         default: {
             return state

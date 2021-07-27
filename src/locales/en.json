@@ -38,5 +38,8 @@
   "checkers_modal": "Checkers",
   "tic-tac-toe_modal": "Tic-tac-toe",
   "confirm_modal": "Confirm",
-  "cancel_modal": "Cancel"
+  "cancel_modal": "Cancel",
+  "stepOrder": "Turn:",
+  "welcome": "Welcome!",
+  "Winner": "Winner"
 }
