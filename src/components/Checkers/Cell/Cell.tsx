@@ -24,6 +24,7 @@ const Cell: React.FC <IProps> = ({ col, row, cell }) => {
 
     const getCellBackground = (row: number, col: number) => {
         const cellBg = VIEW_OPTIONS.CELL_BACKGROUND;
+        console.log(cellBg)
         return row % 2 === 1
             ? (col % 2 === 1 ? cellBg.GRAY : cellBg.WHITE)
             : (col % 2 === 0 ? cellBg.GRAY : cellBg.WHITE);
