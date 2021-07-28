@@ -7,7 +7,7 @@ import { StContainer, StTable } from './styled';
 import Cell from './Cell';
 
 
-const Checkers: React.FC = ({ field }) => {
+const Checkers: React.FC = () => {
     const rows = CHESS_DESK.ROWS;
     const cols = CHESS_DESK.COLS;
 
@@ -18,7 +18,7 @@ const Checkers: React.FC = ({ field }) => {
                     {
                         rows.map((row) => {
                             return cols.map((col) => {
-                                const cell = field[row - 1][col - 1];
+                                const cell = CELL[row - 1][col - 1];
                                 return (
                                     <Cell
                                         col={col}

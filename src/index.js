@@ -13,15 +13,16 @@ import history from './helpers/history'
 import { sagaRoot } from './store/sagaRoot';
 const sagaMiddleware = createSagaMiddleware();
 
-let devTools = (f) => f;
-if (window.__REDUX_DEVTOOLS_EXTENSION__) {
-  devTools = window.__REDUX_DEVTOOLS_EXTENSION__();
-}
+// let devTools = (f) => f;
+// if (window.__REDUX_DEVTOOLS_EXTENSION__) {
+//   devTools = window.__REDUX_DEVTOOLS_EXTENSION__();
+// }
 
 export const store = createStore(
   rootReducer(history),
   {},
-  compose(applyMiddleware(sagaMiddleware), devTools)
+  compose(applyMiddleware(sagaMiddleware)), 
+      // devTools)
 );
 
 sagaMiddleware.run(sagaRoot);

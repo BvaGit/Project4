@@ -11,13 +11,12 @@ interface IProps {
     cell: ICell
 }
 
-const Cell: React.FC <IProps> = ({ col, row, cell, doCheckersStep }) => {
+const Cell: React.FC <IProps> = ({ col, row, cell }) => {
     const [, drop] = useDrop(
         () => ({
             accept: 'checker',
             drop: () => {
                 console.log(`drop ${row} ${col}`);
-                doCheckersStep(`${row}_${col}`)
             },
         }),
         [row, col],
