@@ -1,5 +1,6 @@
 import React from 'react';
-import { useHistory, useLocation} from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { useHistory, useLocation } from 'react-router-dom';
 import { StControl } from 'src/components/Header/HeaderControlPanel/styled';
 import { useTranslation } from 'react-i18next';
 import { HEADER_CONTROL_BTNS } from 'src/constants/componentsConsts';
@@ -9,7 +10,8 @@ import { useTheme } from 'src/components/Hook/useTheme';
 import { ROUTS_WITHOUT_STATISTICS } from '../../../constants/ui';
 import { routStat } from '/src/constants/routes';
 
-const HeaderControlPanel = () => {
+
+const HeaderControlPanel = ( logOut ) => {
         const { i18n } = useTranslation();
         const { changeTheme } = useTheme();
         const history = useHistory()
@@ -26,18 +28,25 @@ const HeaderControlPanel = () => {
         const handleThemeClick = ({ target }) => {
             changeTheme();
         };
+        
+        const handleLogOutClick = () => {
+            history.push(routStat.auth)
+            Cookies.remove('userName')
+            Cookies.remove('token')
+        }
 
         const getFunctionForButtons = (el) => {
             switch (el.id) {
                 case 'statistic': return goToStats;
                 case 'theme_btn': return handleThemeClick;
+                case 'logOut': return handleLogOutClick;
                 default: return handleChangeLanguage;
             }
         };
+        
     return(
     <StControl>
         {HEADER_CONTROL_BTNS.map((el) => {
-            console.log(location.pathname, ROUTS_WITHOUT_STATISTICS)
             if ((el.rout === '/statistic' && ROUTS_WITHOUT_STATISTICS.includes(location.pathname)) 
                 || el.rout === location.pathname) return null;
             return (

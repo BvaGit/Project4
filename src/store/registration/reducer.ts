@@ -49,6 +49,15 @@ export const registrationReducer = (state = initialState, action: Types.TAction)
             ...state,
             isRegister: true
           }
+    case AT.CLEAR_INPUTS_VALUES:
+      return {
+        ...state,
+        fields:{
+          login: '',
+          password: '',
+          confirmPassword:""
+        },
+      }
       default:
         return state;
   }

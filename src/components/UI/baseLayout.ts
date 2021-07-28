@@ -28,10 +28,20 @@ export const colors = {
     light: {
         linearGradientOne: "#e2bf4b",
         linearGradientTwo: "#d02554",
+        gray: '#ccc',
+        white: '#fff',
+        black: '#000',
+        whiteChecker: '#fff',
+        blackChecker: '#777',
     },
     dark: {
         linearGradientOne: "#191919",
         linearGradientTwo: "#073a5c",
+        gray: '#ccc',
+        white: '#fff',
+        black: '#000',
+        whiteChecker: '#fff',
+        blackChecker: '#777',
     },
 };
 //MainPage

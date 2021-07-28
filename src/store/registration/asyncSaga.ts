@@ -5,6 +5,7 @@ import { SEND_REGISTRATION } from './actionTypes';
 import history from '../../helpers/history';
 import { routes } from '../../constants/routes';
 import { fetchRegisterAuth } from '../../helpers/request';
+import { clearRegistrationInputs } from './actions';
 
 function* RegisterWorker(): SagaIterator {
     try {
@@ -15,6 +16,7 @@ function* RegisterWorker(): SagaIterator {
         }
         const answer = yield call(fetchRegisterAuth, routes.account.registration, body)
         if(answer.status === 201){
+            yield (put(clearRegistrationInputs()));
             history.push('/')
         }
     } catch (e) {

@@ -5,6 +5,10 @@ export const getAuthFieldsStore = createSelector(
   getAuthStore,
   (auth) => auth.fields
 );
+export const getClearFields = createSelector(
+    getAuthStore,
+    (fields) => fields
+)
 export const getAuthFieldByIdStore = createSelector(
   getAuthFieldsStore,
   (_state, props: any) => props.id,
@@ -30,3 +34,4 @@ export const getIsValidAuthFields = createSelector(
     return false;
   }
 );
+

@@ -14,6 +14,9 @@ export const onmessage = (message: any) => {
             store.dispatch(setField([null, null, null, null, null, null, null, null, null]))
         }
         if(parsedBody.field){
+            if(parsedBody.field.gameField){
+                return store.dispatch(setField(parsedBody.field.gameField))
+            }
             store.dispatch(setField(parsedBody.field));
         }
         if(parsedBody.stepDto){

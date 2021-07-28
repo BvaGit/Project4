@@ -38,6 +38,14 @@ export const authReducer = (state = initialState, action: Types.TAction): Types.
         ...state,
         isSuccess: true
       }
+    case AT.CLEAR_FIELDS: 
+      return {
+        ...state,
+        fields: {
+          login: "",
+          password: "",
+        },
+      }
     default:
       return state;
   }

@@ -18,5 +18,11 @@ export const HEADER_CONTROL_BTNS = [{
     id: 'ru',
     content: 'russian_translate_btn',
     value: 'ru',
+},
+{
+    id: 'logOut',
+    content: '🚪',
+    rout: '/',
+    value: 'logOut',
 }
 ]
