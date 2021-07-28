@@ -1,8 +1,11 @@
 import React from 'react';
+import { WelcomeStyled } from './styled';
+import { useTranslation } from 'react-i18next';
 
-const Welcome = () => {
+const Welcome = ({ getUserName }) => {
+    const { t } = useTranslation()
     return (
-        <h1>Welcome</h1>
+        <WelcomeStyled>{t('welcome')} {getUserName}</WelcomeStyled>
     )
 }
 

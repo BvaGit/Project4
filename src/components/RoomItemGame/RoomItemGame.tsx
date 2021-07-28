@@ -11,7 +11,7 @@ const RoomItemGame = ({ creatorLogin, userName, gameType, setIdGAme, id, subscri
     const onClickDistributor = (creatorLogin: string, userLogin: string) => {
         return creatorLogin === userLogin
             ? {
-                content: 'play_with_bot',
+                content: t('play_with_bot'),
                 id: setIdGAme(id),
                 setGTR: setGameTypeRoom(gameType),
                 onClickFunc: (e) => {
@@ -23,7 +23,7 @@ const RoomItemGame = ({ creatorLogin, userName, gameType, setIdGAme, id, subscri
                 }
             }
             : {
-                content: 'join',
+                content: t('join'),
                 onClickFunc: (e) => {
                    localStorage.setItem('idGame', id);
                    gameTypeContainer(gameType)

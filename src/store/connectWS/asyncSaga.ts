@@ -74,7 +74,6 @@ export function* workerJoinRoom(): SagaIterator {
     const idGetGame = yield select(getIdGame);
     const userLogin = yield select(getUserName); 
     const body = { guestLogin: userLogin, id: idGetGame };
-    console.log("JoinRoom", body)
     yield call([stompClient, stompClient.send], routesWs.joinRoom, {}, JSON.stringify(body));
 }
 
@@ -94,7 +93,6 @@ export function* workerTicStep(): SagaIterator {
         gameType,
         stepDto: {login: userLogin, step: step, time: Date.now(), id}
     }
-    console.log(body)
     yield call([stompClient, stompClient.send], '/radioactive/do-step', { uuid: id }, JSON.stringify(body));
     yield call(workerGetStepOrder);
 }
@@ -116,7 +114,6 @@ export function* workerSubscribeRoomBot(): SagaIterator {
 }
 
 export function* workerDoBotStep({ payload }: any): SagaIterator { // шаг бота
-    console.log("------", payload)
     const id = yield select(getIdGame);
     const gameType = yield select(getGameTypeRoom);
     const userLogin = 'Bot';
@@ -132,7 +129,6 @@ export function* workerGetBotStep(): SagaIterator {
     const id = yield select(getIdGame);
     const gameType = yield select(getGameTypeRoom);
     const body = { id, gameType };
-    console.log("workerGetBotStep", body)
     yield call([stompClient, stompClient.send], '/radioactive/get-bot-step', { uuid: id }, JSON.stringify(body));
 }
 
@@ -140,7 +136,6 @@ export function* workerJoinRoomBot(): SagaIterator {
     const idGetGame = yield select(getIdGame);
     const userLogin = "Bot"; 
     const body = { guestLogin: userLogin, id: idGetGame };
-    console.log("JoinRoom", body)
     yield call([stompClient, stompClient.send], routesWs.joinRoom, {}, JSON.stringify(body));
 }
 export function* workerDoCheckerStep({ payload }): SagaIterator {

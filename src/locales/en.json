@@ -39,5 +39,8 @@
   "tic-tac-toe_modal": "Tic-tac-toe",
   "confirm_modal": "Confirm",
   "cancel_modal": "Cancel",
-  "team": "DuoDef"
+  "team": "DuoDef",
+  "stepOrder": "Turn:",
+  "welcome": "Welcome!",
+  "Winner": "Winner"
 }
